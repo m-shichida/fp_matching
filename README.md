@@ -1,24 +1,73 @@
-# README
+## セットアップ
+### まずはレポジトリをローカルにもってくる
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
+$ git clone git@github.com:m-shichida/fp_matching.git
+```
 
-Things you may want to cover:
+### ビルドとリスタートする
 
-* Ruby version
+```
+$ mv .env.docker .env
+```
 
-* System dependencies
+```
+$ docker-compose up --build
+```
 
-* Configuration
+```
+$ docker-compose restart
+```
 
-* Database creation
+### Webpackerをインストール
 
-* Database initialization
+```
+$ docker-compose run --rm web rails webpacker:install
+```
 
-* How to run the test suite
+### データベースの作成
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ docker-compose run --rm web rails db:create
+```
 
-* Deployment instructions
+### 起動
 
-* ...
+```
+$ docker-compose up -d(これはなくても良い)
+```
+
+localhost: 3000にアクセスで完了です。
+
+### Dockerfileやdocker-compose.ymlを変更したとき
+再ビルドしてください。
+
+```
+$ docker-compose up --build
+```
+
+### bundle installするとき
+
+```
+$ docker-compose run --rm web bundle install
+```
+
+### bootsnapの影響でrailsコマンドを実行できないとき
+tmp/cache以下の
+
+- bootsnap-compile-cache
+- bootsnap-load-path-cache
+
+を削除する必要があります。
+
+```
+$ docker-compose run --rm web bash
+$ cd tmp/cache
+```
+
+```
+$ rm -rf bootsnap-compile-cache
+$ rm bootsnap-load-path-cache
+```
+
+でキャッシュを削除してください。
