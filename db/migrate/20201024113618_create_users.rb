@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.integer :gender,     null: false,               comment: '性別'
       t.integer :age,        null: false,               comment: '年齢'
       t.string  :image,                                 comment: '顔写真'
-      t.string  :type,       null: false,               comment: 'customerもしくはfinancial_planer'
+      t.string  :type, null: false, comment: 'customerもしくはfinancial_planer'
 
       # ここ以下はcustomer
       t.string  :nick_name,        null: false, comment: 'ニックネーム'
