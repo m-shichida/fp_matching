@@ -28,4 +28,6 @@ class User < ApplicationRecord
   validates :gender, presence: true
   validates :age, presence: true
   validates :type, presence: true, inclusion: { in: [Customer.to_s] }
+
+  enum gender: { male: 0, female: 1 }
 end
