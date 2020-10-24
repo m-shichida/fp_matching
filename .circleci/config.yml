@@ -58,6 +58,7 @@ jobs:
       - run:
           name: run rubocop
           command: |
+            bundle install --path vendor/bundle
             bundle exec rubocop -c ./.rubocop.yml
 
   # rspec:
