@@ -1,8 +1,19 @@
 AllCops:
   TargetRubyVersion: 2.7
 
+Style/AsciiComments:
+  Enabled: false
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 
 Documentation:
   Enabled: false
+
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/**/*.rb
+
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/**/*.rb
