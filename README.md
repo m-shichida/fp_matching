@@ -39,6 +39,12 @@ $ docker-compose up -d(これはなくても良い)
 
 localhost: 3000にアクセスで完了です。
 
+### Rubocopによるlint
+
+```
+$ docker-compose run --rm web bundle exec rubocop
+```
+
 ### Dockerfileやdocker-compose.ymlを変更したとき
 再ビルドしてください。
 
