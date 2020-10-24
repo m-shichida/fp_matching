@@ -1,0 +1,94 @@
+references:
+  container_config: &container_config
+    working_directory: ~/fp_matching
+    docker:
+      - image: circleci/ruby:2.7.2
+        environment:
+          DB_HOST: 127.0.0.1
+          DB_USERNAME: root
+          DB_PASSWORD: ''
+          RAILS_ENV: test
+      - image: circleci/mysql:5.7
+        environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+
+  restore_config: &restore_config
+    keys:
+      - v2-dependencies-{{ arch }}-{{ checksum "Gemfile.lock" }}
+      - v2-dependencies-{{ arch }}-
+      - v2-dependencies-
+
+version: 2
+jobs:
+  build:
+    <<: *container_config
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/fp_matching
+      - restore_cache:
+          <<: *restore_config
+      - run:
+          name: Install capybara-webkit dependencies
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y software-properties-common
+            sudo apt install -y gcc g++ make qt5-default libqt5webkit5-dev ruby-dev zlib1g-dev
+      - run:
+          name: Install bundler
+          command: |
+            gem install bundler
+      - run:
+          name: install dependencies
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle --clean
+      - save_cache:
+          paths:
+            - vendor/bundle
+          key: v2-dependencies-{{ arch }}-{{ checksum "Gemfile.lock" }}
+
+  rubocop:
+    <<: *container_config
+    steps:
+      - checkout
+      - restore_cache:
+          <<: *restore_config
+      - attach_workspace:
+          at: ~/fp_matching
+      - run:
+          name: run rubocop
+          command: |
+            bundle exec rubocop -c ./.rubocop.yml
+
+  # rspec:
+  #   <<: *container_config
+  #   steps:
+  #     - checkout
+  #     - restore_cache:
+  #         <<: *restore_config
+  #     - attach_workspace:
+  #         at: ~/fp_matching
+  #     - run:
+  #         name: Database Setup
+  #         command: |
+  #           cp ./.env.circleci ./.env
+  #           cp ./config/database.yml.ci ./config/database.yml
+  #           gem install bundler
+  #           bundle --path vendor/bundle
+  #           bundle exec rake db:create db:schema:load db:migrate
+  #     - run:
+  #         name: run rspec
+  #         command: |
+  #           bundle exec rspec
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - rubocop:
+          requires:
+            - build
+      # - rspec:
+      #     requires:
+      #       - build

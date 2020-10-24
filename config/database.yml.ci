@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password:
+  host: 127.0.0.1
+
+development:
+  <<: *default
+  database: fp_matching_development
+
+test:
+  <<: *default
+  database: fp_matching_test
+
+production:
+  <<: *default
+  database: fp_matching_production
+  username: fp_matching
+  password: <%= ENV['FP_MATCHING_DATABASE_PASSWORD'] %>
