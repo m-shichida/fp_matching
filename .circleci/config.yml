@@ -61,26 +61,26 @@ jobs:
             bundle install --path vendor/bundle
             bundle exec rubocop -c ./.rubocop.yml
 
-  # rspec:
-  #   <<: *container_config
-  #   steps:
-  #     - checkout
-  #     - restore_cache:
-  #         <<: *restore_config
-  #     - attach_workspace:
-  #         at: ~/fp_matching
-  #     - run:
-  #         name: Database Setup
-  #         command: |
-  #           cp ./.env.circleci ./.env
-  #           cp ./config/database.yml.ci ./config/database.yml
-  #           gem install bundler
-  #           bundle --path vendor/bundle
-  #           bundle exec rake db:create db:schema:load db:migrate
-  #     - run:
-  #         name: run rspec
-  #         command: |
-  #           bundle exec rspec
+  rspec:
+    <<: *container_config
+    steps:
+      - checkout
+      - restore_cache:
+          <<: *restore_config
+      - attach_workspace:
+          at: ~/fp_matching
+      - run:
+          name: Database Setup
+          command: |
+            cp ./.env.circleci ./.env
+            cp ./config/database.yml.ci ./config/database.yml
+            gem install bundler
+            bundle install --path vendor/bundle
+            bundle exec rake db:create db:schema:load db:migrate
+      - run:
+          name: run rspec
+          command: |
+            bundle exec rspec
 
 workflows:
   version: 2
@@ -90,6 +90,6 @@ workflows:
       - rubocop:
           requires:
             - build
-      # - rspec:
-      #     requires:
-      #       - build
+      - rspec:
+          requires:
+            - build
