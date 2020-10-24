@@ -14,6 +14,8 @@ gem 'webpacker', '~> 4.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails', '~> 3.6.0'
+  gem 'spring-commands-rspec'
 end
 
 group :development do
