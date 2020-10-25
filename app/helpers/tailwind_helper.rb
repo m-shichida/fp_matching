@@ -21,6 +21,6 @@ module TailwindHelper
     content_tag(:span,
                 '必須',
                 style: 'vertical-align: 1px;',
-                class: 'ml-1 inline bg-red-500 text-white text-xs font-bold py-1 px-2 rounded')
+                class: 'inline bg-red-500 text-white text-xs font-bold py-1 px-2 rounded')
   end
 end
