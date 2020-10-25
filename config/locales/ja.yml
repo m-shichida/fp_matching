@@ -13,6 +13,7 @@ ja:
       user: ユーザー
       customer: ユーザー
       financial_planner: ファイナンシャルプランナー
+      financial_planner_post: 投稿
     attributes:
       user: &user_attributes
         first_name: 姓
@@ -33,6 +34,15 @@ ja:
       financial_planner: &financial_planner_attributes
         <<: *user_attributes
         self_introduction: 自己紹介文
+      financial_planner_post: &financial_planner_attributes
+        user_id: ファイナンシャルプランナー
+        title: タイトル
+        description: 説明文
+        interview_method: 希望面談方法
+        place: 場所
+      financial_planner_specialty: &financial_planner_specialty_attributes
+        financial_planner_post_id: ファイナンシャルプランナー投稿
+        name: 得意分野名
 
   customers:
     new:
