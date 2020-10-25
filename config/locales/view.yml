@@ -10,3 +10,9 @@ ja:
     submit: 送信
   label:
     required: 必須
+  flash:
+    registrate: "%{model}の登録が完了しました"
+    created: "%{model}を作成しました"
+    updated: "%{model}を更新しました"
+    error:
+      header: "%{count}個のエラーがあります"

@@ -40,11 +40,6 @@ ja:
       basic_info: 基本情報
       questions: 質問事項
 
-  notice:
-    registrate: "%{model}の登録が完了しました"
-    created: "%{model}を作成しました"
-    updated: "%{model}を更新しました"
-
   date:
     abbr_day_names:
     - 日

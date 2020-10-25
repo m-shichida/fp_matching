@@ -26,10 +26,10 @@ group :development do
   gem 'annotate'
   gem 'listen', '~> 3.2'
   gem 'migration_comments'
+  gem 'pry-rails'
   gem 'rubocop', '~> 1.0.0', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'pry-rails'
   gem 'web-console', '>= 3.3.0'
 end
 

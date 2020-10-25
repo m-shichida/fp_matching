@@ -25,7 +25,6 @@
 class Customer < User
   validates :nick_name, presence: true
   validates :job_name, presence: true
-  validates :married, presence: true
   validates :dependent_count, presence: true
   validates :housemate_count, presence: true
 end

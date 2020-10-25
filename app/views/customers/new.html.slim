@@ -1,5 +1,7 @@
 div class='bg-white rounded shadow-md px-8 py-6 mt-2 w-full lg:mt-6 lg:w-4/6 lg:mx-auto'
-  = form_with model: @customer, local: true do |f|
+  = form_with model: @customer, url: customers_sign_up_path, local: true do |f|
+    = render 'shared/error_messages', object: @customer
+
     h2.text-gray-700.font-bold.text-lg
       = t('.basic_info')
 
