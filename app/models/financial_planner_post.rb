@@ -21,5 +21,5 @@ class FinancialPlannerPost < ApplicationRecord
   validates :description, presence: true
   validates :interview_method, presence: true
 
-  enum :interview_method, { face_to_face: 0, video_chat: 1 }
+  enum interview_method: { face_to_face: 0, video_chat: 1 }
 end
