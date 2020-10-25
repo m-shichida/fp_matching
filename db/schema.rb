@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_201_025_143_120) do
+ActiveRecord::Schema.define(version: 20_201_025_144_808) do
   create_table 'financial_planner_posts', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
     t.bigint 'user_id', null: false, comment: 'ユーザー(ファイナンシャルプランナー)ID'
     t.string 'title', null: false, comment: 'タイトル'
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 20_201_025_143_120) do
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.index ['user_id'], name: 'index_financial_planner_posts_on_user_id'
+  end
+
+  create_table 'financial_planner_specialties', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
+    t.bigint 'financial_planner_post_id', null: false, comment: 'ファイナンシャルプランナー投稿ID'
+    t.string 'name', null: false, comment: '得意分野名'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['financial_planner_post_id'], name: 'index_financial_planner_specialties_on_financial_planner_post_id'
   end
 
   create_table 'users', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
@@ -44,4 +52,5 @@ ActiveRecord::Schema.define(version: 20_201_025_143_120) do
   end
 
   add_foreign_key 'financial_planner_posts', 'users'
+  add_foreign_key 'financial_planner_specialties', 'financial_planner_posts'
 end

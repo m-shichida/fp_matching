@@ -12,6 +12,8 @@
 #  updated_at       :datetime         not null
 #
 class FinancialPlannerPost < ApplicationRecord
+  has_many :specialty, class_name: 'FinancialPlannerSpecialty', dependent: :destroy
+
   belongs_to :financial_planner
 
   validates :user_id, presence: true

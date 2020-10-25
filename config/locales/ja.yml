@@ -40,6 +40,9 @@ ja:
         description: 説明文
         interview_method: 希望面談方法
         place: 場所
+      financial_planner_specialty: &financial_planner_specialty_attributes
+        financial_planner_post_id: ファイナンシャルプランナー投稿
+        name: 得意分野名
 
   customers:
     new:
