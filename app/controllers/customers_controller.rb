@@ -8,7 +8,7 @@ class CustomersController < ApplicationController
 
     if @customer.valid?
       @customer.save
-      redirect_to root_path, flash: { notice: I18n.t('flash.registrate', model: "#{@customer.nick_name}さん") }
+      redirect_to root_path, flash: { notice: I18n.t('flash.registrate', model: "#{ @customer.nick_name }さん") }
     else
       render :new
     end

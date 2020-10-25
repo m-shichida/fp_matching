@@ -30,7 +30,7 @@ ja:
         married: 結婚の有無
         dependent_count: 扶養人数
         housemate_count: 同居人数
-      financial_planner:
+      financial_planner: &financial_planner_attributes
         <<: *user_attributes
         self_introduction: 自己紹介文
 
@@ -39,6 +39,10 @@ ja:
       <<: *customer_attributes
       basic_info: 基本情報
       questions: 質問事項
+  financial_planners:
+    new:
+      <<: *financial_planner_attributes
+      basic_info: 基本情報
 
   date:
     abbr_day_names:

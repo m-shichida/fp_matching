@@ -5,6 +5,9 @@ AllCops:
 Documentation:
   Enabled: false
 
+Layout/SpaceInsideStringInterpolation:
+  EnforcedStyle: space
+
 Metrics/AbcSize:
   Exclude:
     - db/migrate/**/*.rb

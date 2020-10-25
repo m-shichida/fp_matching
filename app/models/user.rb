@@ -27,7 +27,11 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :gender, presence: true
   validates :age, presence: true
-  validates :type, presence: true, inclusion: { in: [Customer.to_s] }
+  validates :type, presence: true, inclusion: { in: [Customer.to_s, FinancialPlanner.to_s] }
 
   enum gender: { male: 0, female: 1 }
+
+  def full_name
+    "#{ first_name }#{ last_name }"
+  end
 end
