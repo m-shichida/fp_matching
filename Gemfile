@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) { |repo| "https://github.com/#{ repo }.git" }
 
 ruby '2.7.2'
 
@@ -25,6 +25,7 @@ group :development do
   gem 'annotate'
   gem 'listen', '~> 3.2'
   gem 'migration_comments'
+  gem 'pry-rails'
   gem 'rubocop', '~> 1.0.0', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

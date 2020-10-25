@@ -27,6 +27,9 @@ module FpMatching
     config.i18n.available_locales = %i[ja en]
     config.time_zone = 'Tokyo'
 
+    # バリデーションに引っ掛かったときにfield_with_errorsで囲まない
+    config.action_view.field_error_proc = proc { |html_tag, _instance| html_tag.to_s.html_safe }
+
     config.generators.system_tests = nil
   end
 end

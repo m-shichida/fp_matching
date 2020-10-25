@@ -1,5 +1,5 @@
 ja:
-  application_name: FP matching
+  application_name: お金の相談所
   activerecord:
     errors:
       messages:
@@ -21,18 +21,31 @@ ja:
         gender: 性別
         age: 年齢
         image: プロフィール写真
-      customer:
+      customer: &customer_attributes
         <<: *user_attributes
         nick_name: ニックネーム
-        job_name: 職業
+        job_name: ご職業
         household_income: 世帯年収
         savings: 貯蓄額
         married: 結婚の有無
         dependent_count: 扶養人数
         housemate_count: 同居人数
-      financial_planner:
+      financial_planner: &financial_planner_attributes
         <<: *user_attributes
         self_introduction: 自己紹介文
+
+  customers:
+    new:
+      <<: *customer_attributes
+      basic_info: 基本情報
+      questions: 質問事項
+  financial_planners:
+    new:
+      <<: *financial_planner_attributes
+      basic_info: 基本情報
+  sessions:
+    new:
+      email: メールアドレス
 
   date:
     abbr_day_names:
@@ -165,13 +178,6 @@ ja:
       header:
         one: "%{model}にエラーが発生しました"
         other: "%{model}に%{count}個のエラーが発生しました"
-  helpers:
-    select:
-      prompt: 選択してください
-    submit:
-      create: 登録する
-      submit: 保存する
-      update: 更新する
   number:
     currency:
       format:

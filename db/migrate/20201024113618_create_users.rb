@@ -10,18 +10,20 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string  :type, null: false, comment: 'customerもしくはfinancial_planer'
 
       # ここ以下はcustomer
-      t.string  :nick_name,        null: false, comment: 'ニックネーム'
-      t.string  :job_name,         null: false, comment: '職業'
-      t.integer :household_income,              comment: '世帯年収'
-      t.integer :savings,                       comment: '貯蓄額'
-      t.boolean :married,          null: false, comment: '結婚しているか'
-      t.integer :dependent_count,  null: false, comment: '扶養人数'
-      t.integer :housemate_count,  null: false, comment: '同居人数'
+      t.string  :nick_name,               comment: 'ニックネーム'
+      t.string  :job_name,                comment: '職業'
+      t.integer :household_income,        comment: '世帯年収'
+      t.integer :savings,                 comment: '貯蓄額'
+      t.boolean :married, default: false, comment: '結婚しているか'
+      t.integer :dependent_count,         comment: '扶養人数'
+      t.integer :housemate_count,         comment: '同居人数'
 
       # ここ以下はfinancial_planer
-      t.text :self_introduction, null: false, comment: '自己紹介文'
+      t.text :self_introduction, comment: '自己紹介文'
 
       t.timestamps
     end
+
+    add_index :users, :email, unique: true
   end
 end

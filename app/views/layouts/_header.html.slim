@@ -1,3 +1,21 @@
-header.bg-orange-400.p-6
-  h1.font-semibold.text-xl.text-gray-200
-    | お金の相談
+header.bg-orange-400.px-2.p-2
+  div class='container mx-auto px-0 xl:p-2 flex justify-between'
+    = link_to t('application_name'), root_path, class: 'font-semibold text-xl text-white'
+
+    - if current_user
+      div class='profile cursor-pointer text-white flex relative'
+        - if current_financial_planner
+          p.pt-1 = current_user.full_name
+        - elsif current_customer
+          p.pt-1 = current_customer.nick_name
+        = image_tag current_user.image.presence || 'profile_image.png', class: 'rounded-full h-8 w-8 ml-2'
+
+        div class='hidden pulldonw-menu absolute w-32' style='top: 45px; right: 4px;'
+          .bg-white.shadow-md.rounded.text-black
+            ul
+              li class='border-b-2 border-opacity-25 p-2 hover:bg-gray-200 rounded'
+                = link_to 'プロフィール', '#'
+              li class='p-2 hover:bg-gray-200 rounded'
+                = link_to t('button.sign_out'), sign_out_path
+
+= javascript_pack_tag 'common'

@@ -1,14 +1,12 @@
 AllCops:
   TargetRubyVersion: 2.7
 
-Style/AsciiComments:
-  Enabled: false
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
+# 以下アルファベット順に並べる
 Documentation:
   Enabled: false
+
+Layout/SpaceInsideStringInterpolation:
+  EnforcedStyle: space
 
 Metrics/AbcSize:
   Exclude:
@@ -17,3 +15,9 @@ Metrics/AbcSize:
 Metrics/MethodLength:
   Exclude:
     - db/migrate/**/*.rb
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
