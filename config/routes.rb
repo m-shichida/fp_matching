@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   get 'sign_in', to: 'sessions#new'
   get 'customers/sign_up', to: 'customers#new'
+
+  resources :customers, only: [:create]
 end

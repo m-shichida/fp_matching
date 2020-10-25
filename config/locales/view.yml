@@ -1,0 +1,12 @@
+ja:
+  form:
+    please_fill_zero: いなければ0と記入してください
+    please_select: 選択してください
+    please_current_state: "現在の%{attribute}を記入してください"
+  button:
+    registrate: 登録
+    update: 更新
+    destroy: 削除
+    submit: 送信
+  label:
+    required: 必須
