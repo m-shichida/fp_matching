@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_201_024_113_618) do
+ActiveRecord::Schema.define(version: 20_201_025_143_120) do
+  create_table 'financial_planner_posts', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
+    t.bigint 'user_id', null: false, comment: 'ユーザー(ファイナンシャルプランナー)ID'
+    t.string 'title', null: false, comment: 'タイトル'
+    t.text 'description', null: false, comment: '説明文'
+    t.integer 'interview_method', null: false, comment: '希望面談方法'
+    t.string 'place', comment: '場所'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['user_id'], name: 'index_financial_planner_posts_on_user_id'
+  end
+
   create_table 'users', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
     t.string 'first_name', null: false, comment: '姓'
     t.string 'last_name', null: false, comment: '名'
@@ -31,4 +42,6 @@ ActiveRecord::Schema.define(version: 20_201_024_113_618) do
     t.datetime 'updated_at', precision: 6, null: false
     t.index ['email'], name: 'index_users_on_email', unique: true
   end
+
+  add_foreign_key 'financial_planner_posts', 'users'
 end

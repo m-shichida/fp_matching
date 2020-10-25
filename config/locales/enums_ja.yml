@@ -4,3 +4,7 @@ ja:
       gender:
         male: 男
         female: 女
+    financial_planner_post:
+      interview_method:
+        face_to_face: 対面
+        video_chat: ビデオチャット(URL)
