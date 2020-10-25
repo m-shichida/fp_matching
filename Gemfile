@@ -5,15 +5,15 @@ ruby '2.7.2'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'enum_help'
+gem 'html2slim'
 gem 'jbuilder', '~> 2.7'
 gem 'mysql2', '>= 0.4.4'
 gem 'puma', '~> 4.1'
 gem 'rails', '6.0.0'
 gem 'sass-rails', '>= 6'
+gem 'slim-rails'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
-gem 'slim-rails'
-gem 'html2slim'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
