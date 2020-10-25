@@ -6,6 +6,7 @@ ja:
   button:
     registrate: 登録
     sign_in: ログイン
+    sign_out: ログアウト
     update: 更新
     destroy: 削除
     submit: 送信

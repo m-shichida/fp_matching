@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'introduces#index'
 
   get 'sign_in', to: 'sessions#new'
+  post 'sign_in', to: 'sessions#create'
   get 'sign_out', to: 'sessions#destroy'
   get 'customers/sign_up', to: 'customers#new'
   post 'customers/sign_up', to: 'customers#create'

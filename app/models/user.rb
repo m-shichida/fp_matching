@@ -34,4 +34,12 @@ class User < ApplicationRecord
   def full_name
     "#{ first_name }#{ last_name }"
   end
+
+  def customer?
+    type == Customer.to_s
+  end
+
+  def financial_planner?
+    type == FinancialPlanner.to_s
+  end
 end
