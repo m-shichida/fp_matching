@@ -5,6 +5,7 @@ ja:
     please_current_state: "現在の%{attribute}を記入してください"
   button:
     registrate: 登録
+    sign_in: ログイン
     update: 更新
     destroy: 削除
     submit: 送信

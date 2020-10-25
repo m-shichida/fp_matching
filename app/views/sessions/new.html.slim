@@ -1,2 +1,11 @@
-h1 Sessions#new
-p Find me in app/views/sessions/new.html.slim
+div class='bg-white rounded shadow-md px-4 py-6 mt-2 w-full lg:px-8 lg:mt-6 lg:w-4/6 lg:mx-auto'
+  = form_with url: sign_in_path, local: true do |f|
+    = f.label :email, t('.email'), class: tw_form_label
+    = f.text_field :email, class: tw_form_input
+
+    .links
+      = link_to 'ユーザーとして新規登録する', customers_sign_up_path, class: 'block text-gray-600 text-sm mt-2'
+      = link_to 'ファイナンシャルプランナーとして新規登録する', financial_planners_sign_up_path, class: 'block text-gray-600 text-sm mt-1'
+
+    .mt-4.flex.justify-end
+      = f.submit t('button.sign_in'), class: tw_btn_primary

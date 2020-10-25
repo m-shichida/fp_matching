@@ -8,6 +8,7 @@ class CustomersController < ApplicationController
 
     if @customer.valid?
       @customer.save
+      session[:user_id] = @customer.id
       redirect_to root_path, flash: { notice: I18n.t('flash.registrate', model: "#{ @customer.nick_name }さん") }
     else
       render :new

@@ -8,6 +8,7 @@ class FinancialPlannersController < ApplicationController
 
     if @financial_planner.valid?
       @financial_planner.save
+      session[:user_id] = @financial_planner.id
       redirect_to root_path, flash: { notice: I18n.t('flash.registrate', model: "#{ @financial_planner.full_name }さん") }
     else
       render :new

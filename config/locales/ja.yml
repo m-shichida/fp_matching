@@ -43,6 +43,9 @@ ja:
     new:
       <<: *financial_planner_attributes
       basic_info: 基本情報
+  sessions:
+    new:
+      email: メールアドレス
 
   date:
     abbr_day_names:
