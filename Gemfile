@@ -29,6 +29,7 @@ group :development do
   gem 'rubocop', '~> 1.0.0', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry-rails'
   gem 'web-console', '>= 3.3.0'
 end
 
