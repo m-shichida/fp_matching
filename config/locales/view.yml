@@ -7,6 +7,7 @@ ja:
     destroy: 削除
     submit: 送信
     search: 検索
+    appointment: 予約
   flash:
     registrate: "%{model}の登録が完了しました"
     created: "%{model}を作成しました"
