@@ -10,6 +10,7 @@ ja:
     update: 更新
     destroy: 削除
     submit: 送信
+    search: 検索
   label:
     required: 必須
   flash:

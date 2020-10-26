@@ -56,6 +56,11 @@ ja:
   sessions:
     new:
       email: メールアドレス
+  financial_planner_posts:
+    search_field:
+      place_cont: 場所
+      specialties_name_cont: 得意分野
+      financial_planner_gender_eq: 性別
 
   date:
     abbr_day_names:
