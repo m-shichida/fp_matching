@@ -1,8 +1,4 @@
 ja:
-  form:
-    please_fill_zero: いなければ0と記入してください
-    please_select: 選択してください
-    please_current_state: "現在の%{attribute}を記入してください"
   button:
     registrate: 登録
     sign_in: ログイン
@@ -11,11 +7,22 @@ ja:
     destroy: 削除
     submit: 送信
     search: 検索
-  label:
-    required: 必須
   flash:
     registrate: "%{model}の登録が完了しました"
     created: "%{model}を作成しました"
     updated: "%{model}を更新しました"
+    deleted: "%{model}を削除しました"
+    already_deleted: "%{model}はすでに削除されている可能性があります"
     error:
       header: "%{count}個のエラーがあります"
+  form:
+    please_fill_zero: いなければ0と記入してください
+    please_select: 選択してください
+    please_current_state: "現在の%{attribute}を記入してください"
+    delete_confirm: 本当に削除しますか？
+  label:
+    required: 必須
+  link:
+    new: 新規作成
+    edit: 編集
+    destroy: 削除

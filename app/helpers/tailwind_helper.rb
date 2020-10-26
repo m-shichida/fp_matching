@@ -1,5 +1,9 @@
 # 他のメソッド名と判別するために頭文字にtw_をつける
 module TailwindHelper
+  def tw_form_container
+    'bg-white rounded shadow-md px-4 py-6 mt-2 w-full lg:px-8 lg:mt-12 lg:w-4/6 lg:mx-auto'
+  end
+
   def tw_form_label
     'inline-block text-gray-700 text-sm font-bold mt-3 mb-1'
   end
@@ -15,6 +19,10 @@ module TailwindHelper
 
   def tw_btn_green
     'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+  end
+
+  def tw_btn_gray
+    'bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
   end
 
   def tw_required

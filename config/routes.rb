@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   get 'financial_planners/sign_up', to: 'financial_planners#new'
   post 'financial_planners/sign_up', to: 'financial_planners#create'
 
-  resources :posts, controller: 'financial_planner_posts', only: %i[index new]
+  resources :posts, controller: 'financial_planner_posts'
 end

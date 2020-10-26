@@ -13,9 +13,12 @@ header.bg-orange-400.px-2.p-2
         div class='hidden pulldonw-menu absolute w-32' style='top: 45px; right: 4px;'
           .bg-white.shadow-md.rounded.text-black
             ul
-              li class='border-b-2 border-opacity-25 p-2 hover:bg-gray-200 rounded'
-                = link_to 'プロフィール', '#'
-              li class='p-2 hover:bg-gray-200 rounded'
-                = link_to t('button.sign_out'), sign_out_path
+              li class='border-b-2 border-opacity-25 hover:bg-gray-200 rounded'
+                = link_to 'プロフィール', '#', class: 'block w-full p-2'
+              - if current_financial_planner
+                li class='border-b-2 border-opacity-25 hover:bg-gray-200 rounded'
+                  = link_to t('link.new'), new_post_path, class: 'block w-full p-2 '
+              li class='hover:bg-gray-200 rounded'
+                = link_to t('button.sign_out'), sign_out_path, class: 'block w-full p-2'
 
 = javascript_pack_tag 'common'
