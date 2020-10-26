@@ -1,2 +1,50 @@
-div class='w-full lg:flex lg:mt-12'
-  = render 'search_field'
+div class='w-full lg:flex lg:justify-between lg:mt-12'
+  div class='w-full lg:w-4/12 lg:pr-4'
+    = render 'search_field'
+
+  div class='lg:w-8/12'
+    article class='bg-white rounded p-4 mt-2 lg:mt-0'
+      .flex
+        = image_tag 'profile_image.png', class: 'bg-gray-500 rounded-full h-16 w-16'
+        div.ml-4
+          h1 class='text-xl lg:text-2xl font-bold text-gray-700'
+            | タイトルタイトルタイトル
+          h2 class='text-lg lg:text-xl font-bold text-gray-700'
+            | 田中太郎
+
+      p.text-gray-700.mt-4
+        | 説明文です。説明文です。説明文です。説明文です。説明文です。
+        | 説明文です。説明文です。説明文です。説明文です。説明文です。
+        | 説明文です。説明文です。説明文です。説明文です。説明文です。
+
+      .flex.justify-between.mt-4
+        div class="#{ tw_btn_green }"
+          | 予約してみる
+
+        div.flex.leading-9
+          = image_tag ('map_pin.png'), class: 'h-8 w-8'
+          p
+            | 大阪府
+
+    article class='bg-white rounded p-4 mt-2 lg:mt-4'
+      .flex
+        = image_tag 'profile_image.png', class: 'bg-gray-500 rounded-full h-16 w-16'
+        div.ml-4
+          h1.text-2xl.font-bold.text-gray-700
+            | タイトルタイトルタイトル
+          h2.text-xl.font-bold.text-gray-700
+            | 田中太郎
+
+      p.text-gray-700.mt-4
+        | 説明文です。説明文です。説明文です。説明文です。説明文です。
+        | 説明文です。説明文です。説明文です。説明文です。説明文です。
+        | 説明文です。説明文です。説明文です。説明文です。説明文です。
+
+      .flex.justify-between.mt-4
+        div class="#{ tw_btn_green }"
+          | 予約してみる
+
+        div.flex.leading-9
+          = image_tag ('map_pin.png'), class: 'h-8 w-8'
+          p
+            | 大阪府
