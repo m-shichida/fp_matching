@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
   def authenticated!
     redirect_to sign_in_path, flash: { notice: 'ログインが必要です' } unless current_user
   end
+
+  def authenticated_financial_planner!
+    redirect_to root_path, flash: { notice: '権限がありません' } unless current_financial_planner
+  end
 end
