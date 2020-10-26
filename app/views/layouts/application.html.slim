@@ -13,7 +13,7 @@ html
     div class='container mx-auto px-2 xl:py-4'
       - flash.each do |key, value|
         - if value.present?
-          div class="bg-#{ flash_bg_color(key) }-100 border-#{ flash_bg_color(key) }-500 text-#{ flash_bg_color(key) }-900 border-t-4 rounded-b px-4 py-3 mb-2 shadow-md" role="alert"
+          div class="flash bg-#{ flash_bg_color(key) }-100 border-#{ flash_bg_color(key) }-500 text-#{ flash_bg_color(key) }-900 border-t-4 rounded-b px-4 py-3 mb-2 shadow-md" role="alert"
             .flex
               .py-1
                 svg class="fill-current h-6 w-6 text-#{ flash_bg_color(key) }-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"

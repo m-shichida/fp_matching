@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'introduces#index'
+  root to: 'financial_planner_posts#index'
 
   get 'sign_in', to: 'sessions#new'
   post 'sign_in', to: 'sessions#create'
@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   get 'financial_planners/sign_up', to: 'financial_planners#new'
   post 'financial_planners/sign_up', to: 'financial_planners#create'
+
+  resources :posts, controller: 'financial_planner_posts', only: %i[index new]
 end

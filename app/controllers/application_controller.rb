@@ -17,6 +17,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticated!
-    redirect_to sign_in_path, flash: { danger: 'ログインが必要です' } unless current_user
+    redirect_to sign_in_path, flash: { notice: 'ログインが必要です' } unless current_user
   end
 end
