@@ -21,6 +21,10 @@ module TailwindHelper
     'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
   end
 
+  def tw_btn_gray
+    'bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+  end
+
   def tw_required
     content_tag(:span,
                 '必須',

@@ -11,12 +11,15 @@ ja:
     registrate: "%{model}の登録が完了しました"
     created: "%{model}を作成しました"
     updated: "%{model}を更新しました"
+    deleted: "%{model}を削除しました"
+    already_deleted: "%{model}はすでに削除されている可能性があります"
     error:
       header: "%{count}個のエラーがあります"
   form:
     please_fill_zero: いなければ0と記入してください
     please_select: 選択してください
     please_current_state: "現在の%{attribute}を記入してください"
+    delete_confirm: 本当に削除しますか？
   label:
     required: 必須
   link:
