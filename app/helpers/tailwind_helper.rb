@@ -1,5 +1,9 @@
 # 他のメソッド名と判別するために頭文字にtw_をつける
 module TailwindHelper
+  def tw_form_container
+    'bg-white rounded shadow-md px-4 py-6 mt-2 w-full lg:px-8 lg:mt-12 lg:w-4/6 lg:mx-auto'
+  end
+
   def tw_form_label
     'inline-block text-gray-700 text-sm font-bold mt-3 mb-1'
   end

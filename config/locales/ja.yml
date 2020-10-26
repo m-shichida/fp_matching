@@ -34,12 +34,13 @@ ja:
       financial_planner: &financial_planner_attributes
         <<: *user_attributes
         self_introduction: 自己紹介文
-      financial_planner_post: &financial_planner_attributes
+      financial_planner_post: &financial_planner_posts_attributes
         user_id: ファイナンシャルプランナー
         title: タイトル
         description: 説明文
         interview_method: 希望面談方法
         place: 場所
+        url: URL
       financial_planner_specialty: &financial_planner_specialty_attributes
         financial_planner_post_id: ファイナンシャルプランナー投稿
         name: 得意分野名

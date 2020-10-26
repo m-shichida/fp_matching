@@ -12,14 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20_201_025_144_808) do
   create_table 'financial_planner_posts', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
-    t.bigint 'user_id', null: false, comment: 'ユーザー(ファイナンシャルプランナー)ID'
+    t.bigint 'financial_planner_id', null: false, comment: 'ユーザー(ファイナンシャルプランナー)ID'
     t.string 'title', null: false, comment: 'タイトル'
     t.text 'description', null: false, comment: '説明文'
     t.integer 'interview_method', null: false, comment: '希望面談方法'
     t.string 'place', comment: '場所'
+    t.string 'url', comment: 'URL'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.index ['user_id'], name: 'index_financial_planner_posts_on_user_id'
+    t.index ['financial_planner_id'], name: 'index_financial_planner_posts_on_financial_planner_id'
   end
 
   create_table 'financial_planner_specialties', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
@@ -51,6 +52,5 @@ ActiveRecord::Schema.define(version: 20_201_025_144_808) do
     t.index ['email'], name: 'index_users_on_email', unique: true
   end
 
-  add_foreign_key 'financial_planner_posts', 'users'
   add_foreign_key 'financial_planner_specialties', 'financial_planner_posts'
 end
