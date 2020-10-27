@@ -1,12 +1,12 @@
-= search_form_for @q, url: posts_path, class: 'bg-white rounded shadow-md px-4 pb-2 mt-2 lg:mt-0' do |f|
+= search_form_for @q, url: root_path, class: 'bg-white rounded shadow-md px-4 pb-2 mt-2 lg:mt-0' do |f|
+  = f.label :financial_planner_first_name_or_financial_planner_last_name_cont, t('.financial_planner_name_cont'), class: tw_form_label
+  = f.search_field :financial_planner_first_name_or_financial_planner_last_name_cont, class: tw_form_input
+
   = f.label :place_cont, t('.place_cont'), class: tw_form_label
   = f.search_field :place_cont, class: tw_form_input
 
-  = f.label :specialties_name_eq, t('.specialties_name_cont'), class: tw_form_label
-  = f.search_field :specialties_name_eq, class: tw_form_input
-
   = f.label :financial_planner_gender_eq, t('.financial_planner_gender_eq'), class: tw_form_label
-  = f.select :financial_planner_gender_eq, User.genders_i18n.invert, { include_blank: '' }, { class: tw_form_input }
+  = f.select :financial_planner_gender_eq, User.genders_i18n.invert.map { |k, v| [k, User.genders[v]] }, { include_blank: '' }, { class: tw_form_input }
 
   .flex.justify-end
     = f.submit t('button.search'), class: "#{ tw_btn_primary } mt-2"

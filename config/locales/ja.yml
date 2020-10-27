@@ -59,6 +59,7 @@ ja:
       email: メールアドレス
   financial_planner_posts:
     search_field:
+      financial_planner_name_cont: 氏名で探す
       place_cont: 場所
       specialties_name_cont: 得意分野
       financial_planner_gender_eq: 性別
