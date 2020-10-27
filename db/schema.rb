@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20_201_025_144_808) do
     t.boolean 'married', default: false, comment: '結婚しているか'
     t.integer 'dependent_count', comment: '扶養人数'
     t.integer 'housemate_count', comment: '同居人数'
-    t.text 'self_introduction', comment: '自己紹介文'
+    t.text 'career', comment: '経歴'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.index ['email'], name: 'index_users_on_email', unique: true

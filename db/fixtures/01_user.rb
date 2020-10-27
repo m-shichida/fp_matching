@@ -42,7 +42,7 @@ FinancialPlanner.seed(:id,
                         email: 'fp@example.com',
                         gender: User.genders[:male],
                         age: Random.rand(20..65),
-                        self_introduction: 'ここに自己紹介文が入ります。'
+                        career: 'ここに経歴が入ります。'
                       },
                       {
                         id: 6,
@@ -51,7 +51,7 @@ FinancialPlanner.seed(:id,
                         email: Faker::Internet.email,
                         gender: Random.rand(0..1),
                         age: Random.rand(20..65),
-                        self_introduction: 'ここに自己紹介文が入ります。'
+                        career: 'ここに経歴が入ります。'
                       },
                       {
                         id: 7,
@@ -60,5 +60,5 @@ FinancialPlanner.seed(:id,
                         email: Faker::Internet.email,
                         gender: Random.rand(0..1),
                         age: Random.rand(20..65),
-                        self_introduction: 'ここに自己紹介文が入ります。'
+                        career: 'ここに経歴が入ります。'
                       })

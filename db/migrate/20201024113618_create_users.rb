@@ -19,7 +19,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.integer :housemate_count,         comment: '同居人数'
 
       # ここ以下はfinancial_planer
-      t.text :self_introduction, comment: '自己紹介文'
+      t.text :career, comment: '経歴'
 
       t.timestamps
     end
