@@ -23,7 +23,9 @@ class FinancialPlannerPostsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @post = FinancialPlannerPost.find(params[:id])
+  end
 
   def edit
     @post = find_current_fp_post
