@@ -1,0 +1,56 @@
+div class='w-full lg:flex lg:justify-between lg:mt-12 text-gray-700'
+  div class='w-full lg:w-4/12 lg:pr-4'
+    div class='bg-white rounded shadow-md px-4 pb-2 mt-2 lg:mt-0'
+      / カレンダーはあとで
+      - if current_financial_planner
+        span class=tw_btn_green
+          | 予約状況を確認
+        span class="#{ tw_btn_green } ml-4"
+          | 投稿を編集
+      - elsif current_customer
+        span class=tw_btn_green
+          | 予約する
+
+  div class='lg:w-8/12'
+    article class='bg-white rounded p-4 mt-2 lg:mt-0'
+      div.flex
+        = image_tag 'profile_image.png', class: 'bg-gray-500 rounded-full h-20 w-20'
+        h1 class='text-xl lg:text-2xl font-bold  pl-4'
+          = @post.title
+      h2 class='text-lg lg:text-xl font-bold text-right'
+        = @post.financial_planner.full_name
+      h2 class='text-lg lg:text-xl font-bold mt-2'
+        | 紹介文
+      p.mt-2.leading-8
+        = @post.description
+
+    article class='bg-white rounded p-4 mt-2'
+      h2 class='text-lg lg:text-xl font-bold'
+        | レビュー（１０件）★★★★☆（4.0）
+      / ここから個々のユーザーのレビューがある
+      div.mt-4.flex
+        = image_tag 'profile_image.png', class: 'bg-gray-500 rounded-full h-16 w-16'
+        div.pl-4
+          div.flex
+            h2 class='text-lg lg:text-xl font-bold'
+              = 'ニックネーム'
+            span.pl-2
+              | ★★★★☆（4.0）
+          p
+            = 'YYYY/MM/DD'
+          p
+            = '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。'
+
+      / ここから個々のユーザーのレビューがある
+      div.mt-4.flex
+        = image_tag 'profile_image.png', class: 'bg-gray-500 rounded-full h-16 w-16'
+        div.pl-4
+          div.flex
+            h2 class='text-lg lg:text-xl font-bold'
+              = 'ニックネーム'
+            span.pl-2
+              | ★★★★☆（4.0）
+          p
+            = 'YYYY/MM/DD'
+          p
+            = '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。'

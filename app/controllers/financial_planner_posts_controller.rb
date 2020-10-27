@@ -23,7 +23,9 @@ class FinancialPlannerPostsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @post = FinancialPlannerPost.find(params[:id])
+  end
 
   def edit
     @post = find_current_fp_post
@@ -55,9 +57,17 @@ class FinancialPlannerPostsController < ApplicationController
   end
 
   def search_params
-    return {} if params[:q].blank?
+    params[:q] ||= {}
+    if params[:q].blank?
+      params[:q].reverse_merge!(
+        financial_planner_first_name_or_financial_planner_last_name_cont: '',
+        place_cont: '',
+        financial_planner_gender_eq: ''
+      )
+    end
 
-    params.require(:q).permit(:place_cont, :specialties_name_cont, :financial_planner_gender_eq).to_h
+    params.require(:q).permit(:financial_planner_first_name_or_financial_planner_last_name_cont,
+                              :place_cont, :financial_planner_gender_eq)
   end
 
   def permit_params

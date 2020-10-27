@@ -45,6 +45,16 @@ localhost: 3000にアクセスで完了です。
 $ docker-compose run --rm web bundle exec rubocop
 ```
 
+### db/fixtures以下のファイルについて
+seed-fuを使ってサンプルデータを反映できます。
+
+```
+$ docker-compose run --rm web rails db:seed_fu
+```
+
+ユーザー側でログインするなら`customer@example.com`
+ファイナンシャルプランナー側でログインするなら`fp@example.com`でログインしてください。
+
 ### Dockerfileやdocker-compose.ymlを変更したとき
 再ビルドしてください。
 
