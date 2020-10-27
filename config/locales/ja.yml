@@ -33,7 +33,7 @@ ja:
         housemate_count: 同居人数
       financial_planner: &financial_planner_attributes
         <<: *user_attributes
-        self_introduction: 自己紹介文
+        career: 経歴
       financial_planner_post: &financial_planner_posts_attributes
         user_id: ファイナンシャルプランナー
         title: タイトル

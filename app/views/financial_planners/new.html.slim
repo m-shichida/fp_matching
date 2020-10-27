@@ -31,9 +31,9 @@ div class=tw_form_container
         = tw_required
         = f.number_field :age, class: tw_form_input
 
-    = f.label :self_introduction, class: "#{ tw_form_label } mr-1"
+    = f.label :career, class: "#{ tw_form_label } mr-1"
     = tw_required
-    = f.text_area :self_introduction, class: tw_form_input, size: "30x10"
+    = f.text_area :career, class: tw_form_input, size: "30x10"
 
     .mt-4.flex.justify-end
       = f.submit t('button.registrate'), class: tw_btn_primary
