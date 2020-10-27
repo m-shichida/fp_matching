@@ -8,7 +8,7 @@ div class='w-full lg:flex lg:justify-between lg:mt-12'
         .flex
           = image_tag 'profile_image.png', class: 'bg-gray-500 rounded-full h-16 w-16'
           div.ml-4.w-full
-            = link_to post.title, post_path(post), class: 'text-xl lg:text-2xl font-bold text-gray-700 hover:underline'
+            = link_to post.title, financial_planner_post_path(post.financial_planner), class: 'text-xl lg:text-2xl font-bold text-gray-700 hover:underline'
             h2 class='text-lg lg:text-xl font-bold text-gray-700 text-right'
               = post.financial_planner.full_name
 

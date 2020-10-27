@@ -27,7 +27,7 @@
 #
 
 class FinancialPlanner < User
-  has_many :posts, class_name: 'FinancialPlannerPost', dependent: :destroy
+  has_one :post, class_name: 'FinancialPlannerPost', dependent: :destroy
 
   validates :career, presence: true
 end

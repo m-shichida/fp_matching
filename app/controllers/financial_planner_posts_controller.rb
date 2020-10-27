@@ -1,6 +1,7 @@
 class FinancialPlannerPostsController < ApplicationController
   before_action :authenticated!, only: :index
   before_action :authenticated_financial_planner!, only: %i[new create edit update destroy]
+  before_action :already_post_created, only: %i[new create]
 
   def index
     @q = FinancialPlannerPost.ransack(search_params)
@@ -8,12 +9,12 @@ class FinancialPlannerPostsController < ApplicationController
   end
 
   def new
-    @post = current_financial_planner.posts.build
+    @post = current_financial_planner.build_post
     @specialties = @post.specialties.build
   end
 
   def create
-    @post = current_financial_planner.posts.build(permit_params)
+    @post = current_financial_planner.build_post(permit_params)
 
     if @post.valid?
       @post.save
@@ -24,15 +25,15 @@ class FinancialPlannerPostsController < ApplicationController
   end
 
   def show
-    @post = FinancialPlannerPost.find(params[:id])
+    @post = FinancialPlanner.find(params[:financial_planner_id]).post
   end
 
   def edit
-    @post = find_current_fp_post
+    @post = current_financial_planner.post
   end
 
   def update
-    @post = find_current_fp_post
+    @post = current_financial_planner.post
     if @post.update(permit_params)
       redirect_to root_path, flash: { notice: I18n.t('flash.updated', model: FinancialPlannerPost.model_name.human) }
     else
@@ -41,7 +42,7 @@ class FinancialPlannerPostsController < ApplicationController
   end
 
   def destroy
-    @post = find_current_fp_post
+    @post = current_financial_planner.post
     if @post.destroy
       redirect_to root_path, flash: { notice: I18n.t('flash.deleted', model: FinancialPlannerPost.model_name.human) }
     else
@@ -51,10 +52,6 @@ class FinancialPlannerPostsController < ApplicationController
   end
 
   private
-
-  def find_current_fp_post
-    current_financial_planner.posts.find(params[:id])
-  end
 
   def search_params
     params[:q] ||= {}
@@ -72,7 +69,12 @@ class FinancialPlannerPostsController < ApplicationController
 
   def permit_params
     params.require(:financial_planner_post)
-          .permit(:financial_planner_id, :title, :description, :interview_method, :place,
-                  financial_planner_specialty_attributes: %i[id financial_planner_post_id name _destroy])
+          .permit(:financial_planner_id, :title, :description, :interview_method, :place, :url)
+  end
+
+  def already_post_created
+    return if current_financial_planner && current_financial_planner.post.nil?
+
+    redirect_to root_path, flash: { danger: 'すでに自己紹介投稿がされているため投稿できません' }
   end
 end

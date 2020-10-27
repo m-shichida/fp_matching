@@ -5,8 +5,7 @@ div class='w-full lg:flex lg:justify-between lg:mt-12 text-gray-700'
       - if current_financial_planner
         span class=tw_btn_green
           | 予約状況を確認
-        span class="#{ tw_btn_green } ml-4"
-          | 投稿を編集
+        = link_to '投稿を編集', edit_financial_planner_post_path(current_financial_planner), class: "#{ tw_btn_green } ml-4"
       - elsif current_customer
         span class=tw_btn_green
           | 予約する
