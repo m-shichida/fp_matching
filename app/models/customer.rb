@@ -27,6 +27,8 @@
 #
 
 class Customer < User
+  has_many :appointments, dependent: :destroy
+
   validates :nick_name, presence: true
   validates :job_name, presence: true
   validates :dependent_count, presence: true

@@ -8,3 +8,7 @@ ja:
       interview_method:
         face_to_face: 対面
         video_chat: ビデオチャット(URL)
+    appointment:
+      interview_method:
+        face_to_face: 対面
+        video_chat: ビデオチャット(URL)
