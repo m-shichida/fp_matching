@@ -1,4 +1,6 @@
 class FinancialPlannersController < ApplicationController
+  before_action :authenticated_viewable_current_user!, only: %i[edit update]
+
   def new
     @financial_planner = FinancialPlanner.new
   end

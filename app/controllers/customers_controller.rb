@@ -1,4 +1,6 @@
 class CustomersController < ApplicationController
+  before_action :authenticated_viewable_current_user!, only: %i[edit update]
+
   def new
     @customer = Customer.new
   end
