@@ -15,6 +15,7 @@ gem 'ransack'
 gem 'sass-rails', '>= 6'
 gem 'seed-fu'
 gem 'slim-rails'
+gem "simple_calendar", "~> 2.0"
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 

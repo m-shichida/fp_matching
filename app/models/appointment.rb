@@ -27,9 +27,35 @@ class Appointment < ApplicationRecord
   validates :started_at, presence: true
   validates :ended_at, presence: true
   validates :interview_method, presence: true
+  validate :already_exists_appointment
 
   validates_with AppointmentHoursValidator, attributes: %i[started_at ended_at]
   validates_with EveryThirtyMinutesValidator, attributes: %i[started_at ended_at]
 
+  before_validation :combine_appointment_datetime
+
+  attr_accessor :appointment_date, :appointment_time
+
   enum interview_method: { face_to_face: 0, video_chat: 1 }
+
+  STARTED_TIME_BY_WEEK_DAY = '10:00'
+  ENDED_TIME_BY_WEEK_DAY = '18:00'
+  STARTED_TIME_BY_SATURDAY = '11:00'
+  ENDED_TIME_BY_SATURDAY = '15:00'
+
+  private
+
+  def already_exists_appointment
+    appointments = Appointment.where(financial_planner_id: financial_planner_id, started_at: started_at, ended_at: ended_at)
+
+    errors[:base] << 'すでにこの時間帯に予約がされています' if appointments.present?
+  end
+
+  def combine_appointment_datetime
+    started_time = appointment_time.split(' ~ ')[0]
+    ended_time = appointment_time.split(' ~ ')[1]
+
+    self.started_at = Time.zone.parse("#{ appointment_date }-#{ started_time }")
+    self.ended_at = Time.zone.parse("#{ appointment_date }-#{ ended_time }")
+  end
 end

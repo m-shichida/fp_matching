@@ -24,15 +24,15 @@ class AppointmentHoursValidator < ActiveModel::EachValidator
   def without_saturday_appointment_hours?(datetime)
     return unless datetime.saturday?
 
-    SATURDAY_STARTED_TIME_TO_STRFTIME >= datetime.strftime('%H%M%S') ||
-      datetime.strftime('%H%M') >= SATURDAY_ENDED_TIME_TO_STRFTIME
+    SATURDAY_STARTED_TIME_TO_STRFTIME > datetime.strftime('%H%M%S') ||
+    SATURDAY_ENDED_TIME_TO_STRFTIME < datetime.strftime('%H%M%S')
   end
 
   def without_weekday_appointment_hours?(datetime)
     return unless weekday?(datetime)
 
-    WEEKDAY_STARTED_TIME_TO_STRFTIME >= datetime.strftime('%H%M%S') ||
-      datetime.strftime('%H%M') >= WEEKDAY_STARTED_TIME_TO_STRFTIME
+    WEEKDAY_STARTED_TIME_TO_STRFTIME > datetime.strftime('%H%M%S') ||
+    WEEKDAY_ENDED_TIME_TO_STRFTIME < datetime.strftime('%H%M%S')
   end
 
   def weekday?(datetime)

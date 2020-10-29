@@ -17,6 +17,8 @@ ja:
       appointment: 面談予約
     attributes:
       appointment: &appointment_attributes
+        appointment_date: 面談日
+        appointment_time: 面談予約時間
         customer_id: ユーザー
         ended_at: 面談終了時間
         financial_planner_id: ファイナンシャルプランナー
@@ -203,7 +205,7 @@ ja:
       appointment:
         saturday_appointment_hours: 土曜日の営業時間は11:00 ~ 15:00までです
         sunday_is_holiday: 日曜日は休業日です
-        should_every_thirty_minutes: 30分刻みでしか予約できません
+        should_every_thirty_minutes: は30分刻みでしか予約できません
         weekday_appointment_hours: 平日の予約枠は10:00 ~ 18:00までです
     template:
       body: 次の項目を確認してください
