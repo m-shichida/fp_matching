@@ -41,4 +41,8 @@ group :test do
   gem 'mini_racer'
 end
 
+group :production do
+  gem 'pg', '~> 0.19.0', require: false
+end
+
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
