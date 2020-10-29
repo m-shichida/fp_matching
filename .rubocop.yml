@@ -12,6 +12,9 @@ Layout/HashAlignment:
 Layout/SpaceInsideStringInterpolation:
   EnforcedStyle: space
 
+Lint/ConstantDefinitionInBlock:
+  Enabled: false
+
 Metrics/AbcSize:
   Exclude:
     - db/migrate/**/*.rb
