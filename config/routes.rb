@@ -14,5 +14,6 @@ Rails.application.routes.draw do
     resource :post, controller: 'financial_planner_posts', only: %i[new create show edit update destroy]
   end
 
+  resources :customers, only: %i[edit update]
   resources :appointments, only: %i[new create destroy]
 end

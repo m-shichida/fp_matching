@@ -14,7 +14,7 @@ header.bg-orange-400.px-2.p-2
           .bg-white.shadow-md.rounded.text-black
             ul
               li class='border-b-2 border-opacity-25 hover:bg-gray-200 rounded'
-                = link_to 'プロフィール', '#', class: 'block w-full p-2'
+                = link_to 'プロフィール', current_customer ? edit_customer_path(current_customer) : root_path, class: 'block w-full p-2'
               - if current_financial_planner && current_financial_planner.post.nil?
                 li class='border-b-2 border-opacity-25 hover:bg-gray-200 rounded'
                   = link_to t('link.new'), new_financial_planner_post_path(current_financial_planner), class: 'block w-full p-2 '

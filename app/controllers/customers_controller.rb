@@ -15,6 +15,13 @@ class CustomersController < ApplicationController
     end
   end
 
+  def edit
+    @customer = Customer.find(params[:id])
+  end
+
+  def update
+  end
+
   private
 
   def permit_params
