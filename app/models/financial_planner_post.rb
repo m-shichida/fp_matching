@@ -18,6 +18,7 @@
 #
 class FinancialPlannerPost < ApplicationRecord
   has_many :specialties, class_name: 'FinancialPlannerSpecialty', dependent: :destroy
+  has_many :non_appointment_datetimes, dependent: :destroy
 
   belongs_to :financial_planner
 

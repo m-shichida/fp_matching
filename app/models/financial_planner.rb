@@ -28,6 +28,7 @@
 
 class FinancialPlanner < User
   has_many :appointments, dependent: :destroy
+  has_many :non_appointment_datetimes, dependent: :destroy
   has_one :post, class_name: 'FinancialPlannerPost', dependent: :destroy
 
   validates :career, presence: true

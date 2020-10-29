@@ -5,9 +5,17 @@ AllCops:
 Documentation:
   Enabled: false
 
+Layout/EmptyLinesAroundBlockBody:
+  Exclude:
+    - db/schema.rb
+
 Layout/HashAlignment:
   Exclude:
     - lib/tasks/auto_annotate_models.rake
+
+Layout/LineLength:
+  Exclude:
+    - db/schema.rb
 
 Layout/SpaceInsideStringInterpolation:
   EnforcedStyle: space
