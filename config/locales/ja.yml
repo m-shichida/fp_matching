@@ -57,7 +57,7 @@ ja:
         name: 得意分野名
 
   customers:
-    new:
+    form:
       <<: *customer_attributes
       basic_info: 基本情報
       questions: 質問事項
@@ -268,7 +268,8 @@ ja:
   time:
     am: 午前
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      default: "%Y年%m月%d日(%a) %H:%M"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
+      time_only: "%H:%M"
     pm: 午後
