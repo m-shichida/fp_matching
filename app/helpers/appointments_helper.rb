@@ -4,7 +4,7 @@ module AppointmentsHelper
 
   def appointment_time_by_day_of_week
     [
-      ['10:00 ~ 10:30'],['10:30 ~ 11:00']
+      ['10:00 ~ 10:30'], ['10:30 ~ 11:00']
     ]
   end
 end

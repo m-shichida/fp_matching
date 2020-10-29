@@ -38,15 +38,17 @@ class Appointment < ApplicationRecord
 
   enum interview_method: { face_to_face: 0, video_chat: 1 }
 
-  STARTED_TIME_BY_WEEK_DAY = '10:00'
-  ENDED_TIME_BY_WEEK_DAY = '18:00'
-  STARTED_TIME_BY_SATURDAY = '11:00'
-  ENDED_TIME_BY_SATURDAY = '15:00'
+  STARTED_TIME_BY_WEEK_DAY = '10:00'.freeze
+  ENDED_TIME_BY_WEEK_DAY = '18:00'.freeze
+  STARTED_TIME_BY_SATURDAY = '11:00'.freeze
+  ENDED_TIME_BY_SATURDAY = '15:00'.freeze
 
   private
 
   def already_exists_appointment
-    appointments = Appointment.where(financial_planner_id: financial_planner_id, started_at: started_at, ended_at: ended_at)
+    appointments = Appointment.where(financial_planner_id: financial_planner_id,
+                                     started_at: started_at,
+                                     ended_at: ended_at)
 
     errors[:base] << 'すでにこの時間帯に予約がされています' if appointments.present?
   end
