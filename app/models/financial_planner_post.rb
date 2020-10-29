@@ -28,5 +28,7 @@ class FinancialPlannerPost < ApplicationRecord
   validates :description, presence: true
   validates :interview_method, presence: true
 
+  # TODO: before_validationですでに一つ作成してある場合は弾く処理を使う
+
   enum interview_method: { face_to_face: 0, video_chat: 1 }
 end

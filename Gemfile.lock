@@ -203,6 +203,8 @@ GEM
     seed-fu (2.3.9)
       activerecord (>= 3.1)
       activesupport (>= 3.1)
+    simple_calendar (2.4.1)
+      rails (>= 3.0)
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
@@ -269,6 +271,7 @@ DEPENDENCIES
   rubocop (~> 1.0.0)
   sass-rails (>= 6)
   seed-fu
+  simple_calendar (~> 2.0)
   slim-rails
   spring
   spring-commands-rspec

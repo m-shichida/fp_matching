@@ -26,6 +26,8 @@ module FpMatching
     config.i18n.default_locale = :ja
     config.i18n.available_locales = %i[ja en]
     config.time_zone = 'Tokyo'
+    # simple_calendarの最初の曜日
+    config.beginning_of_week = :sunday
 
     # バリデーションに引っ掛かったときにfield_with_errorsで囲まない
     config.action_view.field_error_proc = proc { |html_tag, _instance| html_tag.to_s.html_safe }

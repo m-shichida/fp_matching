@@ -12,6 +12,9 @@ Layout/HashAlignment:
 Layout/SpaceInsideStringInterpolation:
   EnforcedStyle: space
 
+Lint/ConstantDefinitionInBlock:
+  Enabled: false
+
 Metrics/AbcSize:
   Exclude:
     - db/migrate/**/*.rb
@@ -20,6 +23,7 @@ Metrics/BlockLength:
   Exclude:
     - db/schema.rb
     - lib/tasks/auto_annotate_models.rake
+    - spec/**/*.rb
 
 Metrics/MethodLength:
   Exclude:
@@ -30,3 +34,7 @@ Style/AsciiComments:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/StringLiterals:
+  Exclude:
+    - db/schema.rb
