@@ -1,0 +1,15 @@
+div class='w-full lg:flex lg:justify-between lg:mt-12'
+  div class='w-full lg:w-4/12 lg:pr-4'
+    article.bg-white.rounded.p-4.mt-2.font-bold.text-gray-700
+      h2 予約状況
+      - @appointments.each do |appointment|
+        .mt-1
+          p = "#{ l(appointment.started_at, format: :default) } ~ #{ l(appointment.ended_at, format: :time_only) }"
+          .flex.justify-between.mt-2
+            p = appointment.customer.full_name
+            / TODO: ここでcustomerがどんな人なのかUIを作成する
+            span = link_to '詳細', root_path, class: "#{ tw_btn_mini } #{ tw_btn_green }"
+
+  div class='w-full lg:w-8/12'
+    article.bg-white.rounded.p-4.mt-2
+      = render 'form', fp: @financial_planner, url: financial_planner_path

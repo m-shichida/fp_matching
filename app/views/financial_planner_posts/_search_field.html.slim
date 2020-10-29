@@ -9,4 +9,4 @@
   = f.select :financial_planner_gender_eq, User.genders_i18n.invert.map { |k, v| [k, User.genders[v]] }, { include_blank: '' }, { class: tw_form_input }
 
   .flex.justify-end
-    = f.submit t('button.search'), class: "#{ tw_btn_primary } mt-2"
+    = f.submit t('button.search'), class: "#{ tw_btn_primary } #{ tw_btn } mt-2"

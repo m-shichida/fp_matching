@@ -1,0 +1,38 @@
+= form_with model: fp, url: url, local: true do |f|
+  = render 'shared/error_messages', object: fp
+
+  h2.text-gray-700.font-bold.text-lg
+    = t('.basic_info')
+
+  = f.label :email, "#{ t('.email') }（ログイン時に必要となります）", class: "#{ tw_form_label } mr-1"
+  = tw_required
+  = f.text_field :email, class: tw_form_input
+
+  .flex
+    .w-full.pr-2
+      = f.label :first_name, class: "#{ tw_form_label } mr-1"
+      = tw_required
+      = f.text_field :first_name, class: tw_form_input
+
+    .w-full.pl-2
+      = f.label :last_name, class: "#{ tw_form_label } mr-1"
+      = tw_required
+      = f.text_field :last_name, class: tw_form_input
+
+  .flex
+    .w-full.pr-2
+      = f.label :gender, class: "#{ tw_form_label } mr-1"
+      = tw_required
+      = f.select :gender, User.genders_i18n.invert, {}, { class: tw_form_input }
+
+    .w-full.pl-2
+      = f.label :age, class: "#{ tw_form_label } mr-1"
+      = tw_required
+      = f.number_field :age, class: tw_form_input
+
+  = f.label :career, class: "#{ tw_form_label } mr-1"
+  = tw_required
+  = f.text_area :career, class: tw_form_input, size: "30x10"
+
+  .mt-4.flex.justify-end
+    = f.submit fp.new_record? ? t('button.registrate') : t('button.update'), class: "#{ tw_btn_primary } #{ tw_btn }"

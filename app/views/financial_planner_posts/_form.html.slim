@@ -27,5 +27,5 @@ div class=tw_form_container
 
     .mt-4.flex.justify-end
       - if post.persisted?
-        = link_to t('button.destroy'), financial_planner_post_path(current_financial_planner), method: :delete, class: "#{ tw_btn_gray } mr-2", data: { confirm: t('form.delete_confirm') }
-      = f.submit btn_text, class: tw_btn_primary
+        = link_to t('button.destroy'), financial_planner_post_path(current_financial_planner), method: :delete, class: "#{ tw_btn } #{ tw_btn_gray } mr-2", data: { confirm: t('form.delete_confirm') }
+      = f.submit btn_text, class: "#{ tw_btn_primary }#{ tw_btn }"

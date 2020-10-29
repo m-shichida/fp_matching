@@ -9,9 +9,26 @@ class CustomersController < ApplicationController
     if @customer.valid?
       @customer.save
       session[:user_id] = @customer.id
-      redirect_to root_path, flash: { notice: I18n.t('flash.registrate', model: "#{ @customer.nick_name }さん") }
+      redirect_to root_path, notice: I18n.t('flash.registrate', model: "#{ @customer.nick_name }さんのプロフィール")
     else
       render :new
+    end
+  end
+
+  def edit
+    @customer = Customer.find(params[:id])
+    @appointments = @customer.appointments.order(:started_at)
+  end
+
+  def update
+    @customer = Customer.find(params[:id])
+
+    if @customer.update(permit_params)
+      redirect_to edit_customer_path(@customer),
+                  notice: I18n.t('flash.updated', model: "#{ @customer.nick_name }さんのプロフィール")
+    else
+      @appointments = @customer.appointments.order(:started_at)
+      render :edit
     end
   end
 

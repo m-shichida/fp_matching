@@ -16,7 +16,7 @@ div class='w-full lg:flex lg:justify-between lg:mt-12'
           = post.description
 
         .flex.justify-between.mt-4
-          = link_to "#{ t('button.appointment') }してみる", new_appointment_path(financial_planner_id: post.financial_planner.id), class: tw_btn_green
+          = link_to "#{ t('button.appointment') }してみる", new_appointment_path(financial_planner_id: post.financial_planner.id), class: "#{ tw_btn_green } #{ tw_btn }"
 
           div.flex.leading-9
             = image_tag ('map_pin.png'), class: 'h-8 w-8'

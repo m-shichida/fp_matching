@@ -13,16 +13,24 @@ module TailwindHelper
      focus:outline-none focus:bg-white'
   end
 
+  def tw_btn
+    'font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+  end
+
+  def tw_btn_mini
+    'text-sm font-bold p-1 rounded focus:outline-none focus:shadow-outline'
+  end
+
   def tw_btn_primary
-    'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+    'bg-blue-500 hover:bg-blue-700 text-white'
   end
 
   def tw_btn_green
-    'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+    'bg-green-500 hover:bg-green-700 text-white'
   end
 
   def tw_btn_gray
-    'bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+    'bg-gray-500 hover:bg-gray-700 text-white'
   end
 
   def tw_required
