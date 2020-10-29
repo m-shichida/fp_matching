@@ -17,7 +17,7 @@ class FinancialPlannersController < ApplicationController
 
   def edit
     @financial_planner = FinancialPlanner.find(params[:id])
-    @appointments = @financial_planner.appointments
+    @appointments = @financial_planner.appointments.order(:started_at)
   end
 
   def update
