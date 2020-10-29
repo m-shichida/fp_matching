@@ -118,6 +118,7 @@ GEM
     parallel (1.19.2)
     parser (2.7.2.0)
       ast (~> 2.4.1)
+    pg (0.19.0)
     polyamorous (2.3.2)
       activerecord (>= 5.2.1)
     pry (0.13.1)
@@ -279,6 +280,7 @@ DEPENDENCIES
   migration_comments
   mini_racer
   mysql2 (>= 0.4.4)
+  pg (~> 0.19.0)
   pry-rails
   puma (~> 4.1)
   rails (= 6.0.0)
