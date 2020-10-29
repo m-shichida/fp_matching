@@ -23,7 +23,7 @@
     .w-full.pr-2
       = f.label :gender, class: "#{ tw_form_label } mr-1"
       = tw_required
-      = f.select :gender, User.genders_i18n.invert, { include_blank: t('form.please_select') }, { class: tw_form_input }
+      = f.select :gender, User.genders_i18n.invert, {}, { class: tw_form_input }
 
     .w-full.pl-2
       = f.label :age, class: "#{ tw_form_label } mr-1"

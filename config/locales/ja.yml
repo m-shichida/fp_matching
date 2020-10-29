@@ -62,7 +62,7 @@ ja:
       basic_info: 基本情報
       questions: 質問事項
   financial_planners:
-    new:
+    form:
       <<: *financial_planner_attributes
       basic_info: 基本情報
   sessions:

@@ -15,6 +15,23 @@ class FinancialPlannersController < ApplicationController
     end
   end
 
+  def edit
+    @financial_planner = FinancialPlanner.find(params[:id])
+    @appointments = @financial_planner.appointments
+  end
+
+  def update
+    @financial_planner = FinancialPlanner.find(params[:id])
+
+    if @financial_planner.update(permit_params)
+      redirect_to edit_financial_planner_path(@financial_planner),
+                  notice: I18n.t('flash.updated', model: "#{ @financial_planner.full_name }さんのプロフィール")
+    else
+      @appointments = @financial_planner.appointments.order(:started_at)
+      render :edit
+    end
+  end
+
   private
 
   def permit_params
