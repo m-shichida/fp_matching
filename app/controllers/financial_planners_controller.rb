@@ -1,4 +1,6 @@
 class FinancialPlannersController < ApplicationController
+  before_action :authenticated_viewable_current_user!, only: %i[edit update]
+
   def new
     @financial_planner = FinancialPlanner.new
   end
@@ -17,7 +19,7 @@ class FinancialPlannersController < ApplicationController
 
   def edit
     @financial_planner = FinancialPlanner.find(params[:id])
-    @appointments = @financial_planner.appointments
+    @appointments = @financial_planner.appointments.order(:started_at)
   end
 
   def update

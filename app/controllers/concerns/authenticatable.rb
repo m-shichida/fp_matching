@@ -28,4 +28,8 @@ module Authenticatable
   def authenticated_financial_planner!
     redirect_to root_path, flash: { notice: '権限がありません' } unless current_financial_planner
   end
+
+  def authenticated_viewable_current_user!
+    redirect_to root_path, flash: { notice: '権限がありません' } unless User.find(params[:id]) == current_user
+  end
 end
