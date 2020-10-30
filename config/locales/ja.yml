@@ -1,5 +1,5 @@
 ja:
-  application_name: お金の相談所
+  application_name: タイトル
   activerecord:
     errors:
       messages:
@@ -15,6 +15,7 @@ ja:
       financial_planner: ファイナンシャルプランナー
       financial_planner_post: 投稿
       appointment: 面談予約
+      non_appointment_datetime: 予約不可日時
     attributes:
       appointment: &appointment_attributes
         appointment_date: 面談日
@@ -55,6 +56,11 @@ ja:
       financial_planner_specialty: &financial_planner_specialty_attributes
         financial_planner_post_id: ファイナンシャルプランナー投稿
         name: 得意分野名
+      appointment_possible: &appointment_possible_attributes
+        financial_planner_id: ファイナンシャルプランナー
+        financial_planner_post_id: ファイナンシャルプランナー投稿
+        from_date: 予約可能日程(from)
+        to_date: 予約可能日程(to)
 
   customers:
     form:

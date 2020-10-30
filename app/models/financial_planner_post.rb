@@ -18,10 +18,12 @@
 #
 class FinancialPlannerPost < ApplicationRecord
   has_many :specialties, class_name: 'FinancialPlannerSpecialty', dependent: :destroy
+  has_many :appointment_possibles, dependent: :destroy
 
   belongs_to :financial_planner
 
   accepts_nested_attributes_for :specialties, allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :appointment_possibles, allow_destroy: true, reject_if: :all_blank
 
   validates :financial_planner_id, presence: true
   validates :title, presence: true
