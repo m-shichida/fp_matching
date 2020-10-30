@@ -1,0 +1,15 @@
+.flex.nested-fields.field
+  .pl-2
+    = f.label :from_date, class: tw_form_label
+    br
+    = f.date_select :from_date, { start_year: 2020, end_year: 2021 }, { class: 'started-at-select bg-gray-200 text-gray-700 border rounded p-1' }
+
+  .pl-2
+    = f.label :to_date, class: tw_form_label
+    br
+    = f.date_select :to_date, { start_year: 2020, end_year: 2021 }, { class: 'ended-at-select bg-gray-200 text-gray-700 border rounded p-1' }
+
+  = f.hidden_field :financial_planner_id, value: current_financial_planner.id
+
+  div.flex.flex-col-reverse
+    = link_to_remove_association '削除', f, class: "#{ tw_btn_mini } #{ tw_btn_gray } ml-2"

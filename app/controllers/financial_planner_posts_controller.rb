@@ -10,7 +10,6 @@ class FinancialPlannerPostsController < ApplicationController
 
   def new
     @post = current_financial_planner.build_post
-    @specialties = @post.specialties.build
   end
 
   def create
@@ -18,7 +17,8 @@ class FinancialPlannerPostsController < ApplicationController
 
     if @post.valid?
       @post.save
-      redirect_to root_path, flash: { notice: I18n.t('flash.created', model: FinancialPlannerPost.model_name.human) }
+      redirect_to edit_financial_planner_post_path(@post),
+                  notice: I18n.t('flash.created', model: FinancialPlannerPost.model_name.human)
     else
       render :new
     end
@@ -34,8 +34,10 @@ class FinancialPlannerPostsController < ApplicationController
 
   def update
     @post = current_financial_planner.post
+
     if @post.update(permit_params)
-      redirect_to root_path, flash: { notice: I18n.t('flash.updated', model: FinancialPlannerPost.model_name.human) }
+      redirect_to edit_financial_planner_post_path(current_financial_planner),
+                  notice: I18n.t('flash.updated', model: FinancialPlannerPost.model_name.human)
     else
       render :edit
     end
@@ -44,10 +46,10 @@ class FinancialPlannerPostsController < ApplicationController
   def destroy
     @post = current_financial_planner.post
     if @post.destroy
-      redirect_to root_path, flash: { notice: I18n.t('flash.deleted', model: FinancialPlannerPost.model_name.human) }
+      redirect_to root_path, notice: I18n.t('flash.deleted', model: FinancialPlannerPost.model_name.human)
     else
       redirect_to root_path,
-                  flash: { notice: I18n.t('flash.already_deleted', model: FinancialPlannerPost.model_name.human) }
+                  notice: I18n.t('flash.already_deleted', model: FinancialPlannerPost.model_name.human)
     end
   end
 
@@ -69,7 +71,9 @@ class FinancialPlannerPostsController < ApplicationController
 
   def permit_params
     params.require(:financial_planner_post)
-          .permit(:financial_planner_id, :title, :description, :interview_method, :place, :url)
+          .permit(:financial_planner_id, :title, :description, :interview_method, :place, :url,
+                  appointment_possibles_attributes: %i[id financial_planner_id financial_planner_post_id
+                                                       from_date to_date _destroy])
   end
 
   def already_post_created

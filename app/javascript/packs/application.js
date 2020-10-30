@@ -4,6 +4,7 @@ require("@rails/activestorage").start()
 require("channels")
 require('jquery')
 
+import "cocoon"
 import '../css/application.css';
 // Support component names relative to this directory:
 var componentRequireContext = require.context("components", true);

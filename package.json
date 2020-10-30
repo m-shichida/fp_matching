@@ -8,6 +8,8 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "bootstrap": "^4.5.3",
+    "cocoon": "github:nathanvda/cocoon#c24ba53",
     "jquery": "^3.5.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
@@ -15,7 +17,9 @@
     "react-modal": "^3.11.2",
     "react_ujs": "^2.6.1",
     "tailwindcss": "^1.9.6",
-    "turbolinks": "^5.2.0"
+    "tempusdominus-bootstrap-4": "^5.1.2",
+    "turbolinks": "^5.2.0",
+    "yarn": "^1.22.10"
   },
   "version": "0.1.0",
   "devDependencies": {
