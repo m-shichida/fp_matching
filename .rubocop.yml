@@ -24,6 +24,7 @@ Lint/ConstantDefinitionInBlock:
   Enabled: false
 
 Metrics/AbcSize:
+  Max: 20
   Exclude:
     - db/migrate/**/*.rb
 
