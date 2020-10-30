@@ -1,14 +1,15 @@
 div class='w-full lg:flex lg:justify-between lg:mt-12 text-gray-700'
   div class='w-full lg:w-4/12 lg:pr-4'
     div class='bg-white rounded shadow-md px-4 pb-2 mt-2 lg:mt-0'
-      / カレンダーはあとで
-      - if current_financial_planner
-        span class="#{ tw_btn_green } #{ tw_btn }"
-          | 予約状況を確認
-        = link_to '投稿を編集', edit_financial_planner_post_path(current_financial_planner), class: "#{ tw_btn_green } #{ tw_btn } ml-4"
-      - elsif current_customer
-        span class="#{ tw_btn_green } #{ tw_btn }"
-          | 予約する
+      div.pt-2
+        = month_calendar do |date|
+          = date.day
+      div.pt-3.pb-2
+        - if current_financial_planner == @post.financial_planner_id
+          = link_to '予約状況を確認', edit_financial_planner_path(current_financial_planner), class: "#{ tw_btn_green } #{ tw_btn }"
+          = link_to '投稿を編集', edit_financial_planner_post_path(current_financial_planner), class: "#{ tw_btn_green } #{ tw_btn } ml-2"
+        - elsif current_customer
+          = link_to t('button.appointment'), new_appointment_path(financial_planner_id: @post.financial_planner.id), class: "#{ tw_btn_green } #{ tw_btn }"
 
   div class='lg:w-8/12'
     article class='bg-white rounded p-4 mt-2 lg:mt-0'
@@ -19,9 +20,13 @@ div class='w-full lg:flex lg:justify-between lg:mt-12 text-gray-700'
       h2 class='text-lg lg:text-xl font-bold text-right'
         = @post.financial_planner.full_name
       h2 class='text-lg lg:text-xl font-bold mt-2'
-        | 紹介文
+        = t('.introduce')
       p.mt-2.leading-8
         = @post.description
+      h2 class='text-lg lg:text-xl font-bold mt-2'
+        = t('.career')
+      p.mt-2.leading-8
+        = @post.financial_planner.career
 
     article class='bg-white rounded p-4 mt-2'
       h2 class='text-lg lg:text-xl font-bold'
