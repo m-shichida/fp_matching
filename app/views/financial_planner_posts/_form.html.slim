@@ -1,6 +1,6 @@
 - btn_text = post.new_record? ? t('button.registrate') : t('button.update')
 
-div class=tw_form_container
+div.text-gray-700.font-bold class=tw_form_container
   = form_with model: post, url: financial_planner_post_path, local: true do |f|
     = render 'shared/error_messages', object: post
 
@@ -25,7 +25,22 @@ div class=tw_form_container
         = f.label :url, class: tw_form_label
         = f.text_field :url, class: tw_form_input
 
+    h2.mt-3
+      | 面談が可能な日程を指定してください(複数可)
+    p.mt-1
+      | 平日: 10:00 ~ 18:00
+    p.mt-1
+      | 土曜: 11:00 ~ 15:00
+    p.mt-1
+      | 日曜: 休業日
+
+    = f.fields_for :appointment_possibles do |nat|
+      = render 'appointment_possibles_fields', f: nat
+
+    div.flex.justify-end.mt-2
+      = link_to_add_association t('button.add'), f, :appointment_possibles, partial: "financial_planner_posts/appointment_possibles_fields", class: "#{ tw_btn } #{ tw_btn_green }"
+
     .mt-4.flex.justify-end
       - if post.persisted?
         = link_to t('button.destroy'), financial_planner_post_path(current_financial_planner), method: :delete, class: "#{ tw_btn } #{ tw_btn_gray } mr-2", data: { confirm: t('form.delete_confirm') }
-      = f.submit btn_text, class: "#{ tw_btn_primary }#{ tw_btn }"
+      = f.submit btn_text, class: "#{ tw_btn_primary } #{ tw_btn }"
