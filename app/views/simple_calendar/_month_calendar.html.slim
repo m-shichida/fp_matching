@@ -17,6 +17,6 @@
       - date_range.each_slice(7) do |week|
         tr
           - week.each do |day|
-            = content_tag :td, class: "#{ calendar.td_classes_for(day).join(' ') } #{ Date.today < day ? 'selectable-day' : '' }", style: "#{ Date.today > day ? 'background: #999;' : '' }" do
+            = content_tag :td, class: "#{ calendar.td_classes_for(day).join(' ') } #{ Time.zone.today < day && !day.sunday? ? 'selectable-day' : '' }", style: "#{ Time.zone.today > day || day.sunday? ? 'background: #DDDDDD;' : '' }" do
               - day.day.to_s
             = hidden_field_tag :calendar_date, day
