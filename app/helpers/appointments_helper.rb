@@ -31,4 +31,12 @@ module AppointmentsHelper
       appointments.count > 8 ? '△' : '○'
     end
   end
+
+  def allow_appoointment?(fp:, day:)
+    possible_days = fp.appointment_possibles.map do |possible|
+      (possible.from_date..possible.to_date).to_a
+    end
+
+    possible_days.flatten.include?(day)
+  end
 end
