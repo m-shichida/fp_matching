@@ -17,6 +17,12 @@
       - date_range.each_slice(7) do |week|
         tr
           - week.each do |day|
-            = content_tag :td, class: "#{ calendar.td_classes_for(day).join(' ') } #{ Time.zone.today < day && !day.sunday? ? 'selectable-day' : '' }", style: "#{ Time.zone.today > day || day.sunday? ? 'background: #DDDDDD;' : '' }" do
-              - day.day.to_s
+            = content_tag :td, class: "#{ calendar.td_classes_for(day).join(' ') } #{ business_day?(day) ? 'selectable-day' : '' }", style: "#{ outside_business_day?(day) ? 'background: #DDDDDD;' : '' }" do
+              .flex.justify-between
+                span = day.day.to_s
+                - if business_day?(day)
+                  span.text-lg = appointment_possible_state(@appointments.appointed(day))
+                - else
+                  span.text-lg X
+
             = hidden_field_tag :calendar_date, day

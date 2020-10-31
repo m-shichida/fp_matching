@@ -6,7 +6,7 @@ div class=tw_form_container
     = month_calendar do |date|
       = date.day
 
-  = form_with model: @appointment, class: 'mt-4', local: true do |f|
+  = form_with model: @appointment, url: appointments_new_path, class: 'mt-4', local: true do |f|
     = render 'shared/error_messages', object: @appointment
 
     = f.hidden_field :financial_planner_id, value: @financial_planner.id

@@ -26,6 +26,7 @@ class FinancialPlannerPostsController < ApplicationController
 
   def show
     @post = FinancialPlanner.find(params[:financial_planner_id]).post
+    @appointments = @post.financial_planner.appointments
   end
 
   def edit
