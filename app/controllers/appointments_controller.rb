@@ -23,7 +23,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
 
     if @appointment.destroy
-      redirect_to root_path, notice: I18n.t('flash.deleted', model: Appointment.model_name.human)
+      redirect_to edit_customers_path(current_customer), notice: I18n.t('flash.deleted', model: Appointment.model_name.human)
     else
       redirect_to root_path, notice: I18n.t('flash.already_deleted', model: Appointment.model_name.human)
     end
