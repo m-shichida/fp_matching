@@ -30,4 +30,23 @@ $(function() {
       });
     });
   });
+
+  // 希望面談方法によって入力できるフォームを変更する
+  $(function() {
+    $('#appointment_interview_method').on('change', function() {
+      if ($(this).val() === 'face_to_face') {
+        $('#appointment_url').val('');
+        $('#appointment_url').attr('readonly',true);
+        $('#appointment_url').removeClass('focus:bg-white');
+        $('#appointment_place').attr('readonly', false);
+        $('#appointment_place').addClass('focus:bg-white');
+      } else {
+        $('#appointment_place').val('');
+        $('#appointment_place').attr('readonly',true);
+        $('#appointment_place').removeClass('focus:bg-white');
+        $('#appointment_url').attr('readonly', false);
+        $('#appointment_url').addClass('focus:bg-white');
+      }
+    });
+  });
 });

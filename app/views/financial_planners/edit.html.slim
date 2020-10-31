@@ -6,9 +6,14 @@ div class='w-full lg:flex lg:justify-between lg:mt-12'
         .mt-1
           p = "#{ l(appointment.started_at, format: :default) } ~ #{ l(appointment.ended_at, format: :time_only) }"
           .flex.justify-between.mt-2
-            p = appointment.customer.full_name
-            #appointment-statement
-              = react_component("financial_planners/CustomerDetail", { customer: appointment.customer })
+            .flex.pt-1
+              = appointment.face_to_face? ? appointment.place : 'ビデオチャット'
+              = image_tag appointment.face_to_face? ? 'map_pin.png' : 'link.png' , class: 'h-6 w-6 ml-2'
+            .flex
+              span.pt-1 = appointment.customer.full_name
+              #appointment-statement.pl-2
+                = react_component("financial_planners/CustomerDetail",
+                                  { customer: appointment.customer, url: appointment.url, place: appointment.place })
 
   div class='w-full lg:w-8/12'
     article.bg-white.rounded.p-4.mt-2

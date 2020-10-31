@@ -27,6 +27,8 @@ class Appointment < ApplicationRecord
   validates :started_at, presence: true
   validates :ended_at, presence: true
   validates :interview_method, presence: true
+  validates :place, presence: true, if: :face_to_face?
+  validates :url, presence: true, if: :video_chat?
   validate :already_exists_appointment
   validate :invalid_appointment_in_the_past
   validate :once_appointment

@@ -14,7 +14,7 @@ const customStyles = {
 
 Modal.setAppElement('#appointment-statement')
 
-const CustomerDetail = ({ customer }) => {
+const CustomerDetail = ({ customer, url, place }) => {
   const [modalIsOpen,setIsOpen] = React.useState(false);
   const openModal = () => {
     setIsOpen(true);
@@ -87,6 +87,18 @@ const CustomerDetail = ({ customer }) => {
                 <tr>
                   <th className='text-left p-1'>扶養人数</th>
                   <td className='text-center p-1'>{ customer.dependent_count }人</td>
+                </tr>
+              : '' }
+              { url ?
+                <tr>
+                  <th className='text-left p-1'>面談形式(ビデオチャット)</th>
+                  <td className='text-center p-1'>{ url }</td>
+                </tr>
+              : '' }
+              { place ?
+                <tr>
+                  <th className='text-left p-1'>面談形式(対面)</th>
+                  <td className='text-center p-1'>{ place }</td>
                 </tr>
               : '' }
             </tbody>
