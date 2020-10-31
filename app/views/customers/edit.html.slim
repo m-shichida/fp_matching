@@ -5,8 +5,12 @@ div class='w-full lg:flex lg:justify-between lg:mt-12'
       - @appointments.each do |appointment|
         .mt-1
           p = "#{ l(appointment.started_at, format: :default) } ~ #{ l(appointment.ended_at, format: :time_only) }"
-          .flex.justify-between.mt-2
+          .mt-2
             p = appointment.financial_planner.full_name
+          .flex.justify-between.mt-2
+            .flex
+              = appointment.face_to_face? ? appointment.place : 'ビデオチャット'
+              = image_tag appointment.face_to_face? ? 'map_pin.png' : 'link.png' , class: 'h-6 w-6 ml-2'
             .buttons
               = link_to '詳細', financial_planner_post_path(financial_planner_id: appointment.financial_planner_id), class: "#{ tw_btn_mini } #{ tw_btn_green }"
               = link_to 'キャンセル', appointment_path(appointment), method: :delete, data: { confirm: t('form.cancel_confirm') }, class: "ml-1 #{ tw_btn_mini } #{ tw_btn_gray }"

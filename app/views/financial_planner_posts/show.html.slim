@@ -23,6 +23,11 @@ div class='w-full lg:flex lg:justify-between lg:mt-12 text-gray-700'
           = @post.title
       h2 class='text-lg lg:text-xl font-bold text-right'
         = @post.financial_planner.full_name
+
+      .flex.justify-end.leading-9.mt-3
+        p = @post.face_to_face? ? "#{ @post.place }" : 'ビデオチャット希望'
+        = image_tag @post.face_to_face? ? 'map_pin.png' : 'link.png' , class: 'h-8 w-8 ml-2'
+
       h2 class='text-lg lg:text-xl font-bold mt-2'
         = t('.introduce')
 
@@ -32,34 +37,3 @@ div class='w-full lg:flex lg:justify-between lg:mt-12 text-gray-700'
         = t('.career')
 
       = simple_format @post.financial_planner.career, class: 'leading-10 tracking-wider'
-
-    article class='bg-white rounded p-4 mt-2'
-      h2 class='text-lg lg:text-xl font-bold'
-        | レビュー（１０件）★★★★☆（4.0）
-      / ここから個々のユーザーのレビューがある
-      div.mt-4.flex
-        = image_tag 'profile_image.png', class: 'bg-gray-500 rounded-full h-16 w-16'
-        div.pl-4
-          div.flex
-            h2 class='text-lg lg:text-xl font-bold'
-              = 'ニックネーム'
-            span.pl-2
-              | ★★★★☆（4.0）
-          p
-            = 'YYYY/MM/DD'
-          p
-            = '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。'
-
-      / ここから個々のユーザーのレビューがある
-      div.mt-4.flex
-        = image_tag 'profile_image.png', class: 'bg-gray-500 rounded-full h-16 w-16'
-        div.pl-4
-          div.flex
-            h2 class='text-lg lg:text-xl font-bold'
-              = 'ニックネーム'
-            span.pl-2
-              | ★★★★☆（4.0）
-          p
-            = 'YYYY/MM/DD'
-          p
-            = '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。'
