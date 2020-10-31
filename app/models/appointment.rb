@@ -30,6 +30,7 @@ class Appointment < ApplicationRecord
   validate :already_exists_appointment
   validate :invalid_appointment_in_the_past
   validate :once_appointment
+  validate :not_allow_appointment
 
   validates_with AppointmentHoursValidator, attributes: %i[started_at ended_at]
   validates_with EveryThirtyMinutesValidator, attributes: %i[started_at ended_at]
@@ -70,6 +71,15 @@ class Appointment < ApplicationRecord
     return if appointments.select { |appointment| appointment.started_at > Time.zone.now }.empty?
 
     errors[:base] << I18n.t('errors.messages.appointment.already_exists_financial_planner')
+  end
+
+  def not_allow_appointment
+    fp = FinancialPlanner.find(financial_planner_id)
+    possible_days = fp.appointment_possibles.map do |possible|
+      (possible.from_date..possible.to_date).to_a
+    end
+
+    errors[:base] << I18n.t('errors.messages.appointment.not_allow') unless possible_days.flatten.include?(started_at.to_date)
   end
 
   def combine_appointment_datetime

@@ -221,6 +221,7 @@ ja:
         already_exists: すでにこの時間帯に予約がされています
         already_exists_financial_planner: すでにこちらのファイナンシャルプランナーに予約をしています
         invalid_in_the_past: 過去の日時には予約できません
+        not_allow: この日時には予約できません
       appointment_possible:
         invalid_appoint_in_the_past: を過去に設定することはできません
         duplicate_appointment_possible_date: が重複しています
