@@ -17,7 +17,7 @@ div class='w-full lg:flex lg:justify-between lg:mt-12'
 
         .flex.justify-between.mt-4
           div
-            - if current_customer_not_appoint?(post)
+            - if current_customer && not_appoint?(post)
               = link_to "#{ t('button.appointment') }してみる", new_appointment_path(financial_planner_id: post.financial_planner.id), class: "#{ tw_btn_green } #{ tw_btn }"
 
           div.flex.leading-9
