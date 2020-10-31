@@ -74,7 +74,9 @@ class Appointment < ApplicationRecord
   end
 
   def not_allow_appointment
-    fp = FinancialPlanner.find(financial_planner_id)
+    fp = FinancialPlanner.find_by(id: financial_planner_id)
+    return if fp.nil? # financial_planner_idがないと他のバリデーションが効くのでスルー
+
     possible_days = fp.appointment_possibles.map do |possible|
       (possible.from_date..possible.to_date).to_a
     end
