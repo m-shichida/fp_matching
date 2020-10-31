@@ -25,12 +25,13 @@ div class='w-full lg:flex lg:justify-between lg:mt-12 text-gray-700'
         = @post.financial_planner.full_name
       h2 class='text-lg lg:text-xl font-bold mt-2'
         = t('.introduce')
-      p.mt-2.leading-8
-        = @post.description
+
+      = simple_format @post.description, class: 'leading-10 tracking-wider'
+
       h2 class='text-lg lg:text-xl font-bold mt-2'
         = t('.career')
-      p.mt-2.leading-8
-        = @post.financial_planner.career
+
+      = simple_format @post.financial_planner.career, class: 'leading-10 tracking-wider'
 
     article class='bg-white rounded p-4 mt-2'
       h2 class='text-lg lg:text-xl font-bold'
