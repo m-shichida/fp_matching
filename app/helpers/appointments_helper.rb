@@ -32,8 +32,8 @@ module AppointmentsHelper
     end
   end
 
-  def allow_appoointment?(fp:, day:)
-    possible_days = fp.appointment_possibles.map do |possible|
+  def allow_appoointment?(financial_planner:, day:)
+    possible_days = financial_planner.appointment_possibles.map do |possible|
       (possible.from_date..possible.to_date).to_a
     end
 
