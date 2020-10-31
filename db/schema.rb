@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_30_125213) do
+ActiveRecord::Schema.define(version: 20_201_030_125_213) do
 
   create_table "appointment_possibles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "financial_planner_id", null: false, comment: "ファイナンシャルプランナーID"
