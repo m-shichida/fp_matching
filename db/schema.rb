@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 20_201_030_125_213) do
   create_table "appointment_possibles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "financial_planner_id", null: false, comment: "ファイナンシャルプランナーID"
     t.bigint "financial_planner_post_id", null: false, comment: "FP自己紹介投稿ID"
-    t.date "from_date", null: false, comment: "予約可能時間(from)"
-    t.date "to_date", null: false, comment: "予約可能時間(to)"
+    t.date "from_date", null: false, comment: "予約可能日程(from)"
+    t.date "to_date", null: false, comment: "予約可能日程(to)"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["financial_planner_id"], name: "index_appointment_possibles_on_financial_planner_id"
@@ -49,25 +49,6 @@ ActiveRecord::Schema.define(version: 20_201_030_125_213) do
     t.index ["financial_planner_id"], name: "index_financial_planner_posts_on_financial_planner_id"
   end
 
-  create_table "financial_planner_specialties", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.bigint "financial_planner_post_id", null: false, comment: "ファイナンシャルプランナー投稿ID"
-    t.string "name", null: false, comment: "得意分野名"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["financial_planner_post_id"], name: "index_financial_planner_specialties_on_financial_planner_post_id"
-  end
-
-  create_table "non_appointment_datetimes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.bigint "financial_planner_id", null: false, comment: "ファイナンシャルプランナーID"
-    t.bigint "financial_planner_post_id", null: false, comment: "FP自己紹介投稿ID"
-    t.datetime "started_at", null: false, comment: "予約負荷時間(from)"
-    t.datetime "ended_at", null: false, comment: "予約負荷時間(to)"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["financial_planner_id"], name: "index_non_appointment_datetimes_on_financial_planner_id"
-    t.index ["financial_planner_post_id"], name: "index_non_appointment_datetimes_on_financial_planner_post_id"
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "first_name", null: false, comment: "姓"
     t.string "last_name", null: false, comment: "名"
@@ -89,5 +70,4 @@ ActiveRecord::Schema.define(version: 20_201_030_125_213) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "financial_planner_specialties", "financial_planner_posts"
 end

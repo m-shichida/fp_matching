@@ -55,9 +55,6 @@ ja:
         url: URL
       financial_planner_post/appointment_possibles:
         base: 予約可能日程
-      financial_planner_specialty: &financial_planner_specialty_attributes
-        financial_planner_post_id: ファイナンシャルプランナー投稿
-        name: 得意分野名
       appointment_possible: &appointment_possible_attributes
         financial_planner_id: ファイナンシャルプランナー
         financial_planner_post_id: ファイナンシャルプランナー投稿
@@ -80,7 +77,6 @@ ja:
     search_field:
       financial_planner_name_cont: 氏名で探す
       place_cont: 場所
-      specialties_name_cont: 得意分野
       financial_planner_gender_eq: 性別
     show:
       introduce: 紹介文
