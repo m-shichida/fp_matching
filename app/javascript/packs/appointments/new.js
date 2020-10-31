@@ -12,7 +12,7 @@ $(function() {
   // 選択した日付から予約可能な時間を取得する
   $('.selectable-day').on('click', function() {
     $.ajax({
-      url: 'http://localhost:3000/appointments/appointment_possible_dates', // TODO: いったんlocalhostにしてあとでgonで取得する
+      url: `${ gon.root_name }/appointments/appointment_possible_dates`,
       type: 'GET',
       dataType: 'json',
       data: {
