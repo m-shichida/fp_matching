@@ -36,7 +36,7 @@ class AppointmentsController < ApplicationController
                               .appointed_in_target_day(target_date)
     appointment_hours = appointments.map { |a| [a.started_at.strftime('%H:%M'), a.ended_at.strftime('%H:%M')].join(' ~ ') }
 
-    if target_date.to_date.saturday?
+    if target_date.saturday?
       render json: view_context.saturday_appointment_possible_hours - appointment_hours
     else
       render json: view_context.week_day_appointment_possible_hours - appointment_hours

@@ -21,10 +21,11 @@ module ApplicationHelper
     from_time = Time.parse(from_datetime).to_i
     to_time   = Time.parse(to_datetime).to_i
     hours = from_time.step(to_time, increment).map do |m|
-              Time.at(m).strftime('%H:%M')
-            end
+      Time.at(m).strftime('%H:%M')
+    end
     hours.map.with_index do |_t, i|
       next if hours[i + 1].nil?
+
       [hours[i], hours[i + 1]].join(' ~ ')
     end.compact
   end
