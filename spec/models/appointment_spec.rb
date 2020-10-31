@@ -26,9 +26,9 @@ RSpec.describe Appointment, type: :model do
   NOT_EVERY_THIRTY_MINUTES_DATE = '2020/10/5'.freeze
   NOT_EVERY_THIRTY_MINUTES_DATE_TIME = '11:10 ~ 11:40'.freeze
   OUTSIDE_WEEKDAYS_APPOINTMENT_DATE = '2020/10/5'.freeze
-  OUTSIDE_WEEKDAYS_APPOINTMENT_TIME = '09:00 ~ 09:30'.freeze
+  OUTSIDE_APPOINTMENT_TIME = '09:00 ~ 09:30'.freeze
   OUTSIDE_SATURDAY_APPOINTMENT_DATE = '2020/10/3'.freeze
-  OUTSIDE_SATURDAY_APPOINTMENT_TIME = '09:00 ~ 09:30'.freeze
+  INSIDE_APPOINTMENT_TIME = '11:00 ~ 11:30'.freeze
 
   # 面談開始時間のバリデーション
   it '面談開始時間は日曜日に設定すると無効であること' do
@@ -46,14 +46,14 @@ RSpec.describe Appointment, type: :model do
 
   it '面談開始時間は平日の10:00~18:00以外の予約時間外に予約しようとすると無効であること' do
     appointment = Appointment.new(appointment_date: OUTSIDE_WEEKDAYS_APPOINTMENT_DATE,
-                                  appointment_time: OUTSIDE_WEEKDAYS_APPOINTMENT_TIME)
+                                  appointment_time: OUTSIDE_APPOINTMENT_TIME)
     appointment.valid?
     expect(appointment.errors[:started_at]).to include('平日の予約枠は10:00 ~ 18:00までです')
   end
 
   it '面談開始時間は土曜日の11:00~15:00以外の予約時間外に予約しようとすると無効であること' do
     appointment = Appointment.new(appointment_date: OUTSIDE_SATURDAY_APPOINTMENT_DATE,
-                                  appointment_time: OUTSIDE_SATURDAY_APPOINTMENT_TIME)
+                                  appointment_time: OUTSIDE_APPOINTMENT_TIME)
     appointment.valid?
     expect(appointment.errors[:started_at]).to include('土曜日の営業時間は11:00 ~ 15:00までです')
   end
@@ -74,14 +74,14 @@ RSpec.describe Appointment, type: :model do
 
   it '面談終了時間は平日の10:00~18:00以外の予約時間外に予約しようとすると無効であること' do
     appointment = Appointment.new(appointment_date: OUTSIDE_WEEKDAYS_APPOINTMENT_DATE,
-                                  appointment_time: OUTSIDE_WEEKDAYS_APPOINTMENT_TIME)
+                                  appointment_time: OUTSIDE_APPOINTMENT_TIME)
     appointment.valid?
     expect(appointment.errors[:ended_at]).to include('平日の予約枠は10:00 ~ 18:00までです')
   end
 
   it '面談終了時間は土曜日の11:00~15:00以外の予約時間外に予約しようとすると無効であること' do
     appointment = Appointment.new(appointment_date: OUTSIDE_SATURDAY_APPOINTMENT_DATE,
-                                  appointment_time: OUTSIDE_SATURDAY_APPOINTMENT_TIME)
+                                  appointment_time: OUTSIDE_APPOINTMENT_TIME)
     appointment.valid?
     expect(appointment.errors[:ended_at]).to include('土曜日の営業時間は11:00 ~ 15:00までです')
   end

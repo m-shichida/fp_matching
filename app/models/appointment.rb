@@ -28,6 +28,7 @@ class Appointment < ApplicationRecord
   validates :ended_at, presence: true
   validates :interview_method, presence: true
   validate :already_exists_appointment
+  validate :invalid_appointment_in_the_past
 
   validates_with AppointmentHoursValidator, attributes: %i[started_at ended_at]
   validates_with EveryThirtyMinutesValidator, attributes: %i[started_at ended_at]
@@ -54,7 +55,11 @@ class Appointment < ApplicationRecord
                                      started_at: started_at,
                                      ended_at: ended_at)
 
-    errors[:base] << 'すでにこの時間帯に予約がされています' if appointments.present?
+    errors[:base] << I18n.t('errors.messages.appointment.already_exists') if appointments.present?
+  end
+
+  def invalid_appointment_in_the_past
+    errors[:base] << I18n.t('errors.messages.appointment.invalid_in_the_past') if started_at < Time.zone.now
   end
 
   def combine_appointment_datetime

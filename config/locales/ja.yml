@@ -218,6 +218,8 @@ ja:
         sunday_is_holiday: 日曜日は休業日です
         should_every_thirty_minutes: は30分刻みでしか予約できません
         weekday_appointment_hours: 平日の予約枠は10:00 ~ 18:00までです
+        already_exists: すでにこの時間帯に予約がされています
+        invalid_in_the_past: 過去の日時には予約できません
       appointment_possible:
         invalid_appoint_in_the_past: を過去に設定することはできません
         duplicate_appointment_possible_date: が重複しています
