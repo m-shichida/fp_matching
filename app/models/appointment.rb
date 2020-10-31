@@ -38,6 +38,10 @@ class Appointment < ApplicationRecord
 
   enum interview_method: { face_to_face: 0, video_chat: 1 }
 
+  scope :without_past, -> { where.not('ended_at < ?', Time.zone.now) }
+  scope :appointed_to_fp, ->(fp) { where(financial_planner_id: fp) }
+  scope :appointed_in_target_day, ->(day) { where(started_at: day.beginning_of_day..day.end_of_day) }
+
   STARTED_TIME_BY_WEEK_DAY = '10:00'.freeze
   ENDED_TIME_BY_WEEK_DAY = '18:00'.freeze
   STARTED_TIME_BY_SATURDAY = '11:00'.freeze

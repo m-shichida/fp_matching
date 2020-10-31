@@ -7,6 +7,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'cocoon'
 gem 'enum_help'
 gem 'faker'
+gem 'gon'
 gem 'html2slim'
 gem 'jbuilder', '~> 2.7'
 gem 'mysql2', '>= 0.4.4'
@@ -23,6 +24,7 @@ gem 'webpacker', '~> 4.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
   gem 'rspec-rails', '~> 3.6.0'
   gem 'spring-commands-rspec'
 end
