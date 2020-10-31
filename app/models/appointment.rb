@@ -29,6 +29,7 @@ class Appointment < ApplicationRecord
   validates :interview_method, presence: true
   validate :already_exists_appointment
   validate :invalid_appointment_in_the_past
+  validate :once_appointment
 
   validates_with AppointmentHoursValidator, attributes: %i[started_at ended_at]
   validates_with EveryThirtyMinutesValidator, attributes: %i[started_at ended_at]
@@ -41,6 +42,7 @@ class Appointment < ApplicationRecord
 
   scope :without_past, -> { where.not('ended_at < ?', Time.zone.now) }
   scope :appointed_to_fp, ->(fp) { where(financial_planner_id: fp) }
+  scope :appointed_by_customer, ->(customer) { where(customer_id: customer) }
   scope :appointed_in_target_day, ->(day) { where(started_at: day.beginning_of_day..day.end_of_day) }
 
   STARTED_TIME_BY_WEEK_DAY = '10:00'.freeze
@@ -60,6 +62,14 @@ class Appointment < ApplicationRecord
 
   def invalid_appointment_in_the_past
     errors[:base] << I18n.t('errors.messages.appointment.invalid_in_the_past') if started_at < Time.zone.now
+  end
+
+  def once_appointment
+    appointments = Appointment.where(financial_planner_id: financial_planner_id,
+                                     customer_id: customer_id)
+    return if appointments.select { |appointment| appointment.started_at > Time.zone.now }.empty?
+
+    errors[:base] << I18n.t('errors.messages.appointment.already_exists_financial_planner')
   end
 
   def combine_appointment_datetime
