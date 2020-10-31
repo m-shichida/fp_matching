@@ -39,4 +39,8 @@ module ApplicationHelper
     business_hours_interval(from_datetime: Appointment::STARTED_TIME_BY_SATURDAY,
                             to_datetime: Appointment::ENDED_TIME_BY_SATURDAY)
   end
+
+  def user_genders_select
+    User.genders_i18n.invert.map { |k, v| [k, User.genders[v]] }
+  end
 end
