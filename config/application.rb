@@ -32,6 +32,13 @@ module FpMatching
     # バリデーションに引っ掛かったときにfield_with_errorsで囲まない
     config.action_view.field_error_proc = proc { |html_tag, _instance| html_tag.to_s.html_safe }
 
+    # ajax対応
+    config.action_dispatch.default_headers = {
+      'Access-Control-Allow-Credentials' => 'true',
+      'Access-Control-Allow-Origin' => 'http://localhost:3000',
+      'Access-Control-Request-Method' => '*'
+    }
+
     config.generators.system_tests = nil
   end
 end

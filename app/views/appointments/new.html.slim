@@ -15,7 +15,7 @@ div class=tw_form_container
     = f.text_field :appointment_date, readonly: true, class: tw_form_input
 
     = f.label :appointment_time, class: tw_form_label
-    = f.select :appointment_time, appointment_time_by_day_of_week, { include_blank: t('form.please_select') }, { class: tw_form_input }
+    = f.select :appointment_time, [], { include_blank: t('form.please_select') }, { class: tw_form_input }
 
     = f.label :interview_method, class: tw_form_label
     = f.select :interview_method, Appointment.interview_methods_i18n.invert, { include_blank: t('form.please_select') }, { class: tw_form_input }

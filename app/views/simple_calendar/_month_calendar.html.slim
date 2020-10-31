@@ -25,7 +25,7 @@
               .flex.justify-between
                 span = day.day.to_s
                 - if is_appointment_possible
-                  span.text-lg = appointment_possible_state(@appointments.appointed(day))
+                  span.text-lg = appointment_possible_state(@appointments.appointed_in_target_day(day))
                 - else
                   span.text-lg X
 
