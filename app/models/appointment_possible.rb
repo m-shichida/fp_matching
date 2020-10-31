@@ -3,8 +3,8 @@
 # Table name: appointment_possibles
 #
 #  id                        :bigint           not null, primary key
-#  from_date                 :date             not null              # 予約可能時間(from)
-#  to_date                   :date             not null              # 予約可能時間(to)
+#  from_date                 :date             not null              # 予約可能日程(from)
+#  to_date                   :date             not null              # 予約可能日程(to)
 #  created_at                :datetime         not null
 #  updated_at                :datetime         not null
 #  financial_planner_id      :bigint           not null              # ファイナンシャルプランナーID
