@@ -1,6 +1,6 @@
 div class='w-full lg:flex lg:justify-between lg:mt-12 text-gray-700'
   div class='w-full lg:w-4/12 lg:pr-4'
-    - if current_customer && not_appoint?(@post)
+    - if current_customer && !not_appoint?(@post)
       div class='bg-white rounded shadow-md px-4 p-2 my-2 lg:mt-0'
         = link_to 'すでに予約しています', edit_customer_path(current_customer), class: 'underline'
 
