@@ -15,6 +15,8 @@ module AppointmentsHelper
   end
 
   def empty_appointment?(appointments)
+    return true if appointments.blank?
+
     max_count = appointments.first.started_at.saturday? ? 8 : 16
 
     appointments.count != max_count
