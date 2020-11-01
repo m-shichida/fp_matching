@@ -15,13 +15,13 @@ Customer.seed(:id,
                 housemate_count: Random.rand(0..5)
               })
 
-2.times do |t|
+20.times do |t|
   Customer.seed(:id,
                 {
-                  id: t + 2,
+                  id: t + 1,
                   first_name: Faker::Name.last_name,
                   last_name: Faker::Name.first_name,
-                  email: "customer_#{ t + 2 }@example.com",
+                  email: "customer_#{ t + 1 }@example.com",
                   gender: Random.rand(0..1),
                   age: Random.rand(20..65),
                   nick_name: 'ニックネーム',
@@ -36,7 +36,7 @@ end
 
 FinancialPlanner.seed(:id,
                       {
-                        id: 5,
+                        id: 21,
                         first_name: '田中',
                         last_name: '次郎',
                         email: 'fp@example.com',
@@ -45,7 +45,7 @@ FinancialPlanner.seed(:id,
                         career: 'ここに経歴が入ります。'
                       },
                       {
-                        id: 6,
+                        id: 22,
                         first_name: Faker::Name.last_name,
                         last_name: Faker::Name.first_name,
                         email: 'fp_2@example.com',
@@ -54,7 +54,7 @@ FinancialPlanner.seed(:id,
                         career: 'ここに経歴が入ります。'
                       },
                       {
-                        id: 7,
+                        id: 23,
                         first_name: Faker::Name.last_name,
                         last_name: Faker::Name.first_name,
                         email: 'fp_3@example.com',
