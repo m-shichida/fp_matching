@@ -16,23 +16,24 @@ $ mv .env.docker .env
 ```
 
 ```
-$ docker-compose up --build
+$ docker-compose build
 ```
 
 ```
 $ docker-compose restart
 ```
 
-### Webpackerをインストール
+### ライブラリをインストール
 
 ```
-$ docker-compose run --rm web rails webpacker:install
+$ docker-compose run --rm web yarn install
 ```
 
-### データベースの作成
+### データベースの作成、マイグレーションを通す
 
 ```
 $ docker-compose run --rm web rails db:create
+$ docker-compose run --rm web rails db:migrate
 ```
 
 ### 起動
