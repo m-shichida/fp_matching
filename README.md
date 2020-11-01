@@ -9,24 +9,21 @@
 $ git clone git@github.com:m-shichida/fp_matching.git
 ```
 
-### ビルドとリスタートする
+### ビルドする
 
 ```
-$ mv .env.docker .env
+$ cp .env.docker .env
 ```
 
 ```
 $ docker-compose build
 ```
 
-```
-$ docker-compose restart
-```
-
-### ライブラリをインストール
+### bundle install
 
 ```
 $ docker-compose run --rm web yarn install
+$ docker-compose run --rm web bundle install
 ```
 
 ### データベースの作成、マイグレーションを通す
